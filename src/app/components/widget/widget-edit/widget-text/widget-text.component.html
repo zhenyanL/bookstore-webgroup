@@ -1,0 +1,62 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid row">
+    <div class="navbar-text pull-left">
+        <a routerLink=".." class="text-black icon-padding">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+    </div>
+    <div class="navbar-text pull-right">
+        <a (click)="updateText()" class="icon-padding text-black">
+          <span class="glyphicon glyphicon-ok"></span>
+        </a>
+    </div>
+    <a class="navbar-brand text-white text-bold" routerLink=".">
+        Widgets Edit
+    </a>
+  </div>
+</nav>
+
+<div class="container-fluid container-padding">
+    <div class="form-group">
+        <label for="text-name">Name</label>
+        <input [(ngModel)]="widget.name" type="text" class="form-control" id="text-name" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="text-text">Text</label>
+        <input [(ngModel)]="widget.text" type="text" class="form-control" id="text-text" placeholder="Text">
+    </div>
+    <div class="form-group">
+        <label for="text-size">Rows</label>
+        <input [(ngModel)]="widget.rows" type="number" class="form-control" id="text-rows">
+    </div>
+    <div class="form-group">
+      <label for="placeholder">Placeholder</label>
+      <input [(ngModel)]="widget.placeholder" id="placeholder" class="form-control" required>
+    </div>
+
+    <p></p>
+    <div class="input-group">
+      <input type="text"
+             readonly
+             value="Formatted"
+             class="form-control"/>
+      <span class="input-group-addon">
+          <input [(ngModel)]="widget.formatted" type="checkbox"/>
+      </span>
+    </div>
+    <p></p>
+
+    <div class="from-group">
+       <button (click)="deleteText()" class="btn btn-danger btn-block" type="button">Delete</button>
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid row">
+    <div class="pull-right navbar-text">
+      <a [routerLink]="['/user',userId]" class="icon-padding">
+          <span class="glyphicon glyphicon-user"></span>
+      </a>
+    </div>
+  </div>
+</nav>

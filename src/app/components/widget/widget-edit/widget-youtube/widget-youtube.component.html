@@ -1,0 +1,50 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid row">
+        <div class="navbar-text pull-left">
+            <a routerLink=".." class="text-black icon-padding">
+          <span class="glyphicon glyphicon-chevron-left">
+          </span>
+            </a>
+        </div>
+        <div class="navbar-text pull-right">
+            <a (click)="updateYoutube()" class="icon-padding text-black">
+              <span class="glyphicon glyphicon-ok"></span>
+            </a>
+        </div>
+        <a class="navbar-brand text-white text-bold" routerLink=".">
+            Widgets Edit
+        </a>
+    </div>
+</nav>
+
+<div class="container-fluid container-padding">
+    <div class="form-group">
+        <label for="youtube-name">Name</label>
+        <input [(ngModel)]="widget.name" type="text" class="form-control" id="youtube-name" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="youtube-text">Text</label>
+        <input [(ngModel)]="widget.text" type="text" class="form-control" id="youtube-text" placeholder="Text">
+    </div>
+    <div class="form-group">
+        <label for="youtube-URL">URL</label>
+        <input [(ngModel)]="widget.url" type="text" class="form-control" id="youtube-URL" placeholder="https://youtu.be/HBMG2xz_Leg">
+    </div>
+    <div class="form-group">
+        <label for="youtube-width">Width</label>
+        <input [(ngModel)]="widget.width" type="text" class="form-control" id="youtube-width" placeholder="100%">
+    </div>
+    <div class="form-group">
+      <button (click)="deleteYoutube()" class="btn btn-danger btn-block" type="button">Delete</button>
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid row">
+        <div class="pull-right navbar-text">
+            <a [routerLink]="['/user',userId]" class="icon-padding">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </div>
+    </div>
+</nav>
