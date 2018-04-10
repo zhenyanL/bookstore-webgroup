@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../../../services/user.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
-
-import { UserService } from '../../../services/user.service.client';
-import { User } from '../../../models/user.model.client';
-
+import {SharedService} from '../../../services/shared.service.client';
 
 @Component({
   selector: 'app-profile',
@@ -12,21 +10,21 @@ import { User } from '../../../models/user.model.client';
 })
 export class ProfileComponent implements OnInit {
   userId: string;
-  user: User;
+  user: any;
 
-  constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private route: Router) {
-    this.user = new User('', '', '', '', '');
+  constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private route: Router,
+              private sharedService: SharedService) {
   }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => {
-      this.userId = params['uid'];
-      return this.userService.findUserById(this.userId).subscribe(
-        (user: User) => {
-          this.user = user;
-        }
-      );
-    });
+    this.user = this.sharedService.user;
+    this.userId = this.user['_id'];
+  }
+
+  logout() {
+    this.userService.logout().subscribe(
+      (data: any) => this.route.navigate(['/login'])
+    );
   }
 
   updateUser() {

@@ -26,7 +26,7 @@
     <label>Last Name</label>
     <input [(ngModel)]="user.lastName" placeholder="Annunziato" id="lastName" type="text" class="form-control">
   </div>
-  <button class="btn btn-success btn-block" type="button" routerLink="/user/{{user._id}}/website">Websites</button>
+  <button class="btn btn-success btn-block" type="button" routerLink="/user/website">Websites</button>
   <button class="btn btn-primary btn-block" type="button" routerLink="/login">Logout</button>
   <button (click)="deleteUser()" class="btn btn-danger btn-block" type="button">Delete</button>
 </div>
