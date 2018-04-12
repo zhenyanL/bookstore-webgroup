@@ -1,6 +1,6 @@
-var userSchema = require('./user.schema.server');
 var mongoose = require('mongoose');
-var UserModel = mongoose.model("UserModel", userSchema);
+var UserSchema = require('./user.schema.server');
+var UserModel = mongoose.model("User", UserSchema);
 
 UserModel.createUser = createUser;
 UserModel.findUserById = findUserById;
@@ -46,3 +46,4 @@ function findAllUsers() {
     console.log(docs);
   })
 }
+

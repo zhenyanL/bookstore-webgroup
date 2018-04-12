@@ -1,5 +1,5 @@
 module.exports = function (app) {
-  var userModel = require('../models/user.model.server');
+  var userModel = require('../models/user/user.model.server');
   var passport = require('passport');
   var LocalStrategy = require('passport-local').Strategy;
   var FacebookStrategy = require('passport-facebook').Strategy;
@@ -17,6 +17,18 @@ module.exports = function (app) {
   app.get('/api/user/:userId', findUserById);
   app.put('/api/user/:userId', updateUser);
   app.delete('/api/user/:userId', deleteUser);
+
+  var facebookConfig = {
+    clientID     : process.env.FACEBOOK_CLIENT_ID,
+    clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL  : process.env.FACEBOOK_CALLBACK_URL
+  };
+  // auth with Facebook
+  app.get ('/facebook/login', passport.authenticate('facebook', { scope : 'email' }));
+  app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+    successRedirect: '/profile',
+    failureRedirect: '/login'
+  }));
 
   function localStrategy(username, password, done) {
     userModel.findUserByUsername(username).then(

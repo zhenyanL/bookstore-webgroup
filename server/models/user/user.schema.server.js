@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var bookSchema = require("../book/book.schema.server");
+
 var userSchema = mongoose.Schema({
   username: String,
   password: String,
@@ -13,6 +15,9 @@ var userSchema = mongoose.Schema({
     id: String,
     displayName : String
   },
+  books: [bookSchema],
+  booksShoppingList: [bookSchema],
+  // docs:[DocSchema],
   dateCreated: {type: Date, default : Date.now}
 }, {collection: 'user'});
 
