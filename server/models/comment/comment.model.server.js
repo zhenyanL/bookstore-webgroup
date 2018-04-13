@@ -19,6 +19,7 @@ function createComment(bookId, userId, comment) {
       BookModel.findBookById(bookId)
         .then(function(book){
           book.comments.push(responseComment);
+          book.rating = (book.rating * book.ratingNumber + comment.rating) / (++book.ratingNumber);
           return book.save();
         });
       return responseComment;

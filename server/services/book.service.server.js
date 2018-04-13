@@ -83,7 +83,7 @@ module.exports = function(app){
       });
   }
 
-  function buyBooks(req, res) {
+  function buyBooksInShopplingList(req, res) {
     var userId = req.params['userId'];
     return bookModel.buyBooksInShoppingList(userId)
       .then(function(response){
