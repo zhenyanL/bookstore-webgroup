@@ -6,8 +6,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var mongoose = require('mongoose');
-var dbmongo = mongoose.connect('mongodb://localhost:27017/webdev');
+// var dbmongo = mongoose.connect('mongodb://localhost:27017/webdev');
 // var dbmongo = mongoose.connect('mongodb://shenjingyu:shenjingyu@ds263707.mlab.com:63707/heroku_pm4zvpxl')
+var dbmongo = mongoose.connect('mongodb://zhao:zhao@ds249269.mlab.com:49269/webgroup');
 
 const path = require('path');
 const http = require('http');
