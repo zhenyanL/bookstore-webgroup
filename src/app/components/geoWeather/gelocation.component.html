@@ -11,10 +11,12 @@
       </agm-map>
     </div>
     <div class="col-md-6">
-      <p><strong>City:</strong> {{city}}</p>
-      <img [src]="iconUrl">
-      <p><strong>Weather:</strong> {{currWeather}},   <strong>Current Temperature:</strong> {{currTemp}}</p>
-      <p><strong>Min Temperature:</strong> {{minTemp}},   <strong>Max Temperature:</strong> {{maxTemp}}</p>
+      <div class="weatherDetail">
+        <p><strong>City:</strong> {{city}}</p>
+        <img [src]="iconUrl">
+        <p><strong>Weather:</strong> {{currWeather}},   <strong>Current Temperature:</strong> {{currTemp}}</p>
+        <p><strong>Min Temperature:</strong> {{minTemp}},   <strong>Max Temperature:</strong> {{maxTemp}}</p>
+      </div>
 
       <form (ngSubmit)="onSubmit()" #f="ngForm">
         <div class="form-group">

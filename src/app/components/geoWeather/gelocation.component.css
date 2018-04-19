@@ -12,3 +12,7 @@ agm-map {
   font-family : Roboto;
   font-size: 1em;
 }
+
+.weatherDetail {
+  padding-bottom: 40px;
+}
