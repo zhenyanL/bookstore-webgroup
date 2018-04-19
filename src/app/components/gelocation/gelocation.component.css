@@ -1,0 +1,14 @@
+agm-map {
+  height: 300px;
+}
+
+.weather {
+  font-family: Roboto;
+  font-size: 14px;
+  padding-top: 90px;
+}
+
+.btn {
+  font-family : Roboto;
+  font-size: 1em;
+}

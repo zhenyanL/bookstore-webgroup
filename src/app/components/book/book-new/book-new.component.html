@@ -1,0 +1,66 @@
+<div class="contain-fluid">
+  <div class="col-xs-8">
+    <div *ngIf="errorFlag"
+         class="alert alert-danger">
+      {{ errorMsg }}
+    </div>
+    <form #f="ngForm">
+      <div class="form-group">
+        <label for="name">Book Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Name" name="name" required ngModel #name="ngModel">
+      </div>
+      <div class="alert alert-danger" *ngIf="!name.valid && name.touched">
+        Book name is required
+      </div>
+
+
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" class="form-control" id="author" placeholder="Author" name="author" required ngModel #author="ngModel">
+      </div>
+      <div class="alert alert-danger" *ngIf="!author.valid && author.touched">
+        Author is required
+      </div>
+
+
+      <div class="form-group">
+        <label for="publisher">Publisher</label>
+        <input type="text" class="form-control" id="publisher" placeholder="Publisher" name="publisher" required ngModel #publisher="ngModel">
+      </div>
+      <div class="alert alert-danger" *ngIf="!publisher.valid && publisher.touched">
+        Publisher is required
+      </div>
+
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text" class="form-control" id="price" placeholder="Price" name="price" required ngModel #price="ngModel">
+      </div>
+      <div class="alert alert-danger" *ngIf="!price.valid && price.touched">
+        Price is required
+      </div>
+
+
+      <div class="form-group">
+        <label for="url">URL</label>
+        <input type="url" class="form-control" id="url" placeholder="URL" name="url" ngModel #url="ngModel" required>
+      </div>
+      <div class="alert alert-danger" *ngIf="!url.valid && url.touched">
+        Url is required
+      </div>
+
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" rows="5" placeholder="Description" name="description" required ngModel #description="ngModel"></textarea>
+      </div>
+      <div class="alert alert-danger" *ngIf="!description.valid && description.touched">
+        Description is required
+      </div>
+      <button class="btn btn-primary btn-block"
+              type="button"
+              (click)="onSubmit()"
+              [disabled]="!f.valid">Add Book</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<!--For test usage-->
+<!--<button (click)="findMe()">Locate Myself</button>-->
+<!--<button (click)="getWeather()">Get weather</button>-->
+
+
+<div class="container weather">
+  <div class="row">
+    <div class="col-md-6">
+      <agm-map [latitude]="currentLat" [longitude]="currentLong">
+        <agm-marker [latitude]="currentLat" [longitude]="currentLong"></agm-marker>
+      </agm-map>
+    </div>
+    <div class="col-md-6">
+      <p><strong>City:</strong> {{city}}</p>
+      <img [src]="iconUrl">
+      <p><strong>Weather:</strong> {{currWeather}},   <strong>Current Temperature:</strong> {{currTemp}}</p>
+      <p><strong>Min Temperature:</strong> {{minTemp}},   <strong>Max Temperature:</strong> {{maxTemp}}</p>
+
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div class="form-group">
+          <input type="text" class="form-control" id="city_W" [(ngModel)]="city" placeholder="City" name="city_W" required ngModel #city_W="ngModel">
+        </div>
+        <div class="alert alert-danger" *ngIf="!city_W.valid && city_W.touched">
+          Please enter valid City
+        </div>
+        <!--<div class="form-group">-->
+        <!--<label for="latitude">Latitude</label>-->
+        <!--<input type="number" class="form-control" id="latitude" [(ngModel)]="currentLat" placeholder="Latitude" name="latitude" required ngModel #latitude="ngModel">-->
+        <!--</div>-->
+        <!--<div class="alert alert-danger" *ngIf="!latitude.valid && latitude.touched">-->
+        <!--Please enter valid latitude-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--<label for="longitude">Longitude</label>-->
+        <!--<input type="number" class="form-control" id="longitude" [(ngModel)]="currentLong" placeholder="longitude" name="longitude" required ngModel #longitude="ngModel">-->
+        <!--</div>-->
+        <!--<div class="alert alert-danger" *ngIf="!longitude.valid && longitude.touched">-->
+        <!--Please enter valid longitude-->
+        <!--</div>-->
+        <button class="btn btn-info btn-block"
+                type="submit"
+                [disabled]="!f.valid">Search Weather</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+
+

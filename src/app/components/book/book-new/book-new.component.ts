@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-book-new',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-new.component.css']
 })
 export class BookNewComponent implements OnInit {
+  errorFlag = false;
+  errorMsg = 'Incomplete or invalid book information';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
   }
 
 }

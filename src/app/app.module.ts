@@ -14,9 +14,13 @@ import { HomeComponent } from './components/home/home.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { CartComponent } from './components/cart/cart.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { BookDetailComponent } from './components/book-detail/book-detail.component';
-import { BookNewComponent } from './components/book-new/book-new.component';
+import { BookDetailComponent } from './components/book/book-detail/book-detail.component';
+import { BookNewComponent } from './components/book/book-new/book-new.component';
 import { SlideshowComponent } from './components/slideshow/slideshow.component';
+import { BookEditComponent } from './components/book/book-edit/book-edit.component';
+import { GelocationComponent } from './components/gelocation/gelocation.component';
+import {CommonModule} from '@angular/common';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -30,13 +34,19 @@ import { SlideshowComponent } from './components/slideshow/slideshow.component';
     NavbarComponent,
     BookDetailComponent,
     BookNewComponent,
-    SlideshowComponent
+    SlideshowComponent,
+    BookEditComponent,
+    GelocationComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    routing
+    routing,
+    CommonModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAf-g21YJ_o0NjbCZIGBFPlDIx5o68tJ7g'
+    })
   ],
   providers: [SharedService, UserService],
   bootstrap: [AppComponent]
