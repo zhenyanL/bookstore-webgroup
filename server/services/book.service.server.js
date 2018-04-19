@@ -21,7 +21,7 @@ module.exports = function(app){
     var userId = req.params['userId'];
     var book = req.body;
     book._seller = userId;
-    bookModel.createBook(userId, book)
+    bookModel.createBookForSeller(userId, book)
       .then(function(response){
         res.status(200).send(response);
       });
