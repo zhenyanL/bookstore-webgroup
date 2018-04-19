@@ -8,8 +8,16 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {routing} from './app.routing';
 import { RegisterComponent } from './components/user/register/register.component';
-import { ProfileComponent } from './components/user/profile/profile.component';
 import { LoginComponent } from './components/user/login/login.component';
+import { PublicProfileComponent } from './components/user/public-profile/public-profile.component';
+import { ProfileSellerComponent } from './components/user/public-profile/profile-seller/profile-seller.component';
+import { ProfileBuyerComponent } from './components/user/public-profile/profile-buyer/profile-buyer.component';
+import { UserListComponent } from './components/user/user-list/user-list.component';
+import {BookService} from './services/book.service.client';
+import {CommentService} from './services/comment.service.server';
+import { PrivateProfileComponent } from './components/user/private-profile/private-profile.component';
+import { ProfileWriterComponent } from './components/user/public-profile/profile-writer/profile-writer.component';
+import {AuthGuard} from './services/auth-guard.service';
 import { HomeComponent } from './components/home/home.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -26,8 +34,14 @@ import { AgmCoreModule } from '@agm/core';
   declarations: [
     AppComponent,
     RegisterComponent,
-    ProfileComponent,
     LoginComponent,
+    PublicProfileComponent,
+    ProfileSellerComponent,
+    ProfileBuyerComponent,
+    UserListComponent,
+    PrivateProfileComponent,
+    ProfileWriterComponent
+    ProfileComponent,
     HomeComponent,
     LogoComponent,
     CartComponent,
@@ -48,7 +62,7 @@ import { AgmCoreModule } from '@agm/core';
       apiKey: 'AIzaSyAf-g21YJ_o0NjbCZIGBFPlDIx5o68tJ7g'
     })
   ],
-  providers: [SharedService, UserService],
+  providers: [SharedService, UserService, BookService, CommentService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

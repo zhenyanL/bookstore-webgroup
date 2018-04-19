@@ -7,14 +7,16 @@ var userSchema = mongoose.Schema({
   firstName: String,
   lastName: String,
   email: String,
-  role: [{
+  role: {
     type:String,
-    enum: ['ADMIN', 'SELLER', 'BUYER', 'WRITER']}],
+    enum: ['ADMIN', 'SELLER', 'BUYER', 'WRITER']},
   facebook : {
     token: String,
     id: String,
     displayName : String
   },
+  follow:[{type : mongoose.Schema.ObjectId, ref: "User"}],
+  followedBy:[{type : mongoose.Schema.ObjectId, ref: "User"}],
   books: [bookSchema],
   booksShoppingList: [bookSchema],
   // docs:[DocSchema],

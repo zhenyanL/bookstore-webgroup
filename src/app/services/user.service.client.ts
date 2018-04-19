@@ -13,11 +13,12 @@ export class UserService {
 
   constructor(private http: Http, private router: Router, private sharedService: SharedService) {}
 
-  register(username: string, password: string) {
+  register(username: string, password: string, role: string) {
     this.options.withCredentials = true;
     const credentials = {
       username : username,
-      password : password
+      password : password,
+      role: role
     };
     return this.http.post(this.baseUrl + '/api/register', credentials, this.options)
       .map((res: Response) => {
@@ -64,6 +65,13 @@ export class UserService {
       });
   }
 
+  findAllUsers() {
+    const url = this.baseUrl + '/api/user/';
+    return this.http.get(url).map((response: Response) => {
+      return response.json();
+    });
+  }
+
   findUserById(userId: string) {
     const url = this.baseUrl + '/api/user/' + userId;
     return this.http.get(url).map((response: Response) => {
@@ -81,5 +89,12 @@ export class UserService {
   deleteUser(userId: string) {
     const url = this.baseUrl + '/api/user/' + userId;
     return this.http.delete(url);
+  }
+
+  follow(myId, userId) {
+    const url =  this.baseUrl + '/api/' + myId + '/user/' + userId;
+    return this.http.put(url, '').map((response: Response) => {
+      return response.json();
+    });
   }
 }

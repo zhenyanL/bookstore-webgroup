@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../../../services/user.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SharedService} from '../../../services/shared.service.client';
+import {UserService} from '../../../services/user.service.client';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-private-profile',
+  templateUrl: './private-profile.component.html',
+  styleUrls: ['./private-profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class PrivateProfileComponent implements OnInit {
   userId: string;
   user: any;
 
@@ -43,5 +43,4 @@ export class ProfileComponent implements OnInit {
       );
     });
   }
-
 }

@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   @ViewChild('f') registerForm: NgForm;
   username: string;
   password: string;
+  role: string;
   errorMsg: string;
 
   constructor(private userService: UserService, private sharedService: SharedService, private router: Router) { }
@@ -27,7 +28,7 @@ export class RegisterComponent implements OnInit {
     const verify = this.registerForm.value.verify;
 
     if (this.password === verify) {
-      this.userService.register(this.username, this.password).subscribe(
+      this.userService.register(this.username, this.password, this.role).subscribe(
         (user) => {
           alert(this.username + ' has been created!');
           this.sharedService.user = user;

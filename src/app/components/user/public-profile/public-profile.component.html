@@ -1,0 +1,15 @@
+<div [ngSwitch]="user.role">
+
+ <div *ngSwitchCase="'SELLER'">
+   <app-profile-seller></app-profile-seller>
+ </div>
+
+ <div *ngSwitchCase="'BUYER'">
+   <app-profile-buyer></app-profile-buyer>
+ </div>
+
+ <div *ngSwitchCase="'WRITER'">
+   <app-profile-writer></app-profile-writer>
+ </div>
+
+</div>
