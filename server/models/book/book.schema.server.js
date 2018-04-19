@@ -8,7 +8,6 @@ var BookSchema = mongoose.Schema ({
   author : String,
   description : String,
   imageUrl : String,
-  imageWidth : String,
   number: Number,
   price : Number,
   comments: [CommentSchema],

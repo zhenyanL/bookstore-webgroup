@@ -1,13 +1,13 @@
-<div class="contain-fluid">
+<div class="container">
+  <div class="col-xs-4 hidden-xs">
+    <img [src]="bookUrl">
+  </div>
+
   <div class="col-xs-8">
-    <div *ngIf="errorFlag"
-         class="alert alert-danger">
-      {{ errorMsg }}
-    </div>
     <form #f="ngForm">
       <div class="form-group">
         <label for="name">Book Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Name" name="name" required ngModel #name="ngModel">
+        <input type="text" class="form-control" id="name" placeholder="Effective Java" name="name" required ngModel #name="ngModel">
       </div>
       <div class="alert alert-danger" *ngIf="!name.valid && name.touched">
         Book name is required
@@ -16,7 +16,7 @@
 
       <div class="form-group">
         <label for="author">Author</label>
-        <input type="text" class="form-control" id="author" placeholder="Author" name="author" required ngModel #author="ngModel">
+        <input type="text" class="form-control" id="author" placeholder="Joshua Bloch" name="author" required ngModel #author="ngModel">
       </div>
       <div class="alert alert-danger" *ngIf="!author.valid && author.touched">
         Author is required
@@ -25,7 +25,7 @@
 
       <div class="form-group">
         <label for="publisher">Publisher</label>
-        <input type="text" class="form-control" id="publisher" placeholder="Publisher" name="publisher" required ngModel #publisher="ngModel">
+        <input type="text" class="form-control" id="publisher" placeholder="Addison-Wesley" name="publisher" required ngModel #publisher="ngModel">
       </div>
       <div class="alert alert-danger" *ngIf="!publisher.valid && publisher.touched">
         Publisher is required
@@ -33,8 +33,17 @@
 
 
       <div class="form-group">
-        <label for="price">Price</label>
-        <input type="text" class="form-control" id="price" placeholder="Price" name="price" required ngModel #price="ngModel">
+        <label for="year">Publish Year</label>
+        <input type="number" class="form-control" id="year" placeholder="2018" name="year" required ngModel #year="ngModel">
+      </div>
+      <div class="alert alert-danger" *ngIf="!year.valid && year.touched">
+        Publish year is required
+      </div>
+
+
+      <div class="form-group">
+        <label for="price">Price ($)</label>
+        <input type="number" class="form-control" id="price" placeholder="100" name="price" required ngModel #price="ngModel">
       </div>
       <div class="alert alert-danger" *ngIf="!price.valid && price.touched">
         Price is required
@@ -42,8 +51,16 @@
 
 
       <div class="form-group">
+        <label for="number">Stock Number</label>
+        <input type="number" class="form-control" id="number" placeholder="50" name="number" required ngModel #number="ngModel">
+      </div>
+      <div class="alert alert-danger" *ngIf="!number.valid && number.touched">
+        Stock number is required
+      </div>
+
+      <div class="form-group">
         <label for="url">URL</label>
-        <input type="url" class="form-control" id="url" placeholder="URL" name="url" ngModel #url="ngModel" required>
+        <input type="url" class="form-control" id="url" placeholder="URL" name="http://www.website.com/picture.jpg" ngModel #url="ngModel" required>
       </div>
       <div class="alert alert-danger" *ngIf="!url.valid && url.touched">
         Url is required
@@ -52,7 +69,7 @@
 
       <div class="form-group">
         <label for="description">Description</label>
-        <textarea id="description" class="form-control" rows="5" placeholder="Description" name="description" required ngModel #description="ngModel"></textarea>
+        <textarea id="description" class="form-control" rows="5" placeholder="A short description of the book" name="description" required ngModel #description="ngModel"></textarea>
       </div>
       <div class="alert alert-danger" *ngIf="!description.valid && description.touched">
         Description is required

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {BookService} from '../../../services/book.service.client';
 
 @Component({
   selector: 'app-book-new',
@@ -7,10 +8,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./book-new.component.css']
 })
 export class BookNewComponent implements OnInit {
-  errorFlag = false;
-  errorMsg = 'Incomplete or invalid book information';
+  bookUrl = '../../../../assets/imgs/bookExample.png';
 
-  constructor() {
+  constructor(private bookService: BookService) {
   }
 
   ngOnInit() {
