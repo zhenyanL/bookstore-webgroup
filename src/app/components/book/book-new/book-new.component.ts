@@ -9,7 +9,7 @@ import {BookService} from '../../../services/book.service.client';
 })
 export class BookNewComponent implements OnInit {
   bookUrl = '../../../../assets/imgs/bookExample.png';
-
+  // this is backup before merge
   constructor(private bookService: BookService) {
   }
 
