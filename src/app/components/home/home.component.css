@@ -22,7 +22,7 @@
 }
 .image-container:hover .product-image{
   opacity: 0.3;
-  background-size:75%;
+  background-size:70%;
 }
 .image-container:hover .overlay{
   opacity: 1;
