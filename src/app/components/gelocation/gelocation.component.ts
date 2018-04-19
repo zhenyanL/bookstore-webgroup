@@ -67,7 +67,6 @@ export class GelocationComponent implements OnInit {
       this.currTemp = this.weather.main.temp;
       this.minTemp = this.weather.main.temp_min;
       this.maxTemp = this.weather.main.temp_max;
-      this.currDesc = this.currWeather = this.weather.weather[0].description;
       this.currentLong = this.weather.coord.lon;
       this.currentLat = this.weather.coord.lat;
       // this.city = this.weather.name;
