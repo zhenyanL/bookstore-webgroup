@@ -40,8 +40,7 @@ import { AgmCoreModule } from '@agm/core';
     ProfileBuyerComponent,
     UserListComponent,
     PrivateProfileComponent,
-    ProfileWriterComponent
-    ProfileComponent,
+    ProfileWriterComponent,
     HomeComponent,
     LogoComponent,
     CartComponent,
