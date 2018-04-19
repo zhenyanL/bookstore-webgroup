@@ -23,6 +23,20 @@
              ngModel required #verify="ngModel"/>
       <span class="help-block" *ngIf="!verify.valid && verify.touched">*Please enter password again!</span>
     </div>
+    <div class="form-group">
+      <label for="name">Role</label>
+      <div>
+        <label class="radio-inline">
+          <input type="radio" name="role" value="SELLER" [(ngModel)]="role" required> Seller
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="role" value="BUYER" [(ngModel)]="role" required> Buyer
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="role" value="WRITER" [(ngModel)]="role" required> Writer
+        </label>
+      </div>
+    </div>
     <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.valid">Register</button>
     <button class="btn btn-danger btn-block" type="button" routerLink="/login">Cancel</button>
   </form>

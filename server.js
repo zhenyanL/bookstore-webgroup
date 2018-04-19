@@ -6,9 +6,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var mongoose = require('mongoose');
-// var dbmongo = mongoose.connect('mongodb://localhost:27017/webdev');
-// var dbmongo = mongoose.connect('mongodb://shenjingyu:shenjingyu@ds263707.mlab.com:63707/heroku_pm4zvpxl')
-var dbmongo = mongoose.connect('mongodb://zhao:zhao@ds249269.mlab.com:49269/webgroup');
+var dbmongo = mongoose.connect('mongodb://localhost:27017/webdev');
+// var dbmongo = mongoose.connect('mongodb://zhao:zhao@ds249269.mlab.com:49269/webgroup');
 
 const path = require('path');
 const http = require('http');
@@ -36,7 +35,7 @@ app.use(function(reg, res, next){
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE, OPTIONS');
   res.header("Access-Control-Allow-Credentials", "true");
   next();
-})
+});
 
 const port=process.env.PORT || '5000';
 app.set('port', port);

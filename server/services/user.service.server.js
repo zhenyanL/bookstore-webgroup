@@ -5,8 +5,23 @@ module.exports = function (app) {
   var FacebookStrategy = require('passport-facebook').Strategy;
   var bcrypt = require("bcrypt-nodejs");
 
+  var facebookConfig = {
+    clientID     : process.env.FACEBOOK_CLIENT_ID,
+    clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL  : process.env.FACEBOOK_CALLBACK_URL
+  };
+
+  // auth with Facebook
+  app.get ('/facebook/login', passport.authenticate('facebook', { scope : 'email' }));
+  app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+    successRedirect: '/profile',
+    failureRedirect: '/login'
+  }));
+
+  passport.use(new LocalStrategy(localStrategy));
   passport.serializeUser(serializeUser);
   passport.deserializeUser(deserializeUser);
+  // passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
   app.post('/api/register', register);
   app.post('/api/login', passport.authenticate('local'), login);
@@ -18,17 +33,7 @@ module.exports = function (app) {
   app.put('/api/user/:userId', updateUser);
   app.delete('/api/user/:userId', deleteUser);
 
-  var facebookConfig = {
-    clientID     : process.env.FACEBOOK_CLIENT_ID,
-    clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
-    callbackURL  : process.env.FACEBOOK_CALLBACK_URL
-  };
-  // auth with Facebook
-  app.get ('/facebook/login', passport.authenticate('facebook', { scope : 'email' }));
-  app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-    successRedirect: '/profile',
-    failureRedirect: '/login'
-  }));
+  app.put('/api/:myId/user/:userId/', followUser);
 
   function localStrategy(username, password, done) {
     userModel.findUserByUsername(username).then(
@@ -163,6 +168,15 @@ module.exports = function (app) {
   function deleteUser(req, res) {
     var userId = req.params["userId"];
     userModel.deleteUser(userId)
+      .then(function(status){
+        res.send(status);
+      })
+  }
+
+  function followUser(req, res) {
+    var myId = req.param("myId");
+    var userId = req.param("userId");
+    userModel.followUser(myId, userId)
       .then(function(status){
         res.send(status);
       })

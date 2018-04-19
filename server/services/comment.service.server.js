@@ -1,5 +1,5 @@
 module.exports = function(app){
-  var commentModel = require("../models/page/page.model.server");
+  var commentModel = require("../models/comment/comment.model.server");
 
   app.post("/api/user/:userId/book/:bookId/comment", createComment);
   app.get("/api/book/:bookId/comment", findAllCommentsForBook);
@@ -38,7 +38,7 @@ module.exports = function(app){
       });
   }
 
-  function updatePage(req, res){
+  function updateComment(req, res){
     var commentId = req.params['commentId'];
     var comment = req.body;
     commentModel.updateComment(commentId, comment)

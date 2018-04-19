@@ -10,6 +10,7 @@ UserModel.findUserByCredentials = findUserByCredentials;
 UserModel.updateUser = updateUser;
 UserModel.deleteUser = deleteUser;
 UserModel.findAllUsers = findAllUsers;
+UserModel.followUser = followUser;
 
 module.exports = UserModel;
 
@@ -42,8 +43,21 @@ function deleteUser(userId) {
 }
 
 function findAllUsers() {
-  UserModel.find(function (err, doc) {
-    console.log(docs);
-  })
+  return UserModel.find(function (err, doc) {
+    console.log(doc);
+  });
+}
+
+function followUser(myId, userId) {
+  UserModel.findUserById(myId)
+    .then(function(user){
+      user.follow.push(userId);
+      user.save();
+    });
+  UserModel.findUserById(userId)
+    .then(function(user){
+      user.followedBy.push(myId);
+      user.save();
+    });
 }
 
