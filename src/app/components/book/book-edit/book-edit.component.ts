@@ -43,19 +43,31 @@ export class BookEditComponent implements OnInit {
               if (book._seller !== this.currentSellerId) {
                 this.router.navigate(['/']);
               }
+            } else {
+              this.router.navigate(['/']);
             }
           });
         }
       );
   }
 
-  onSubmit() {
+  onUpdate() {
     this.bookService.updateBook(this.book)
       .subscribe(
         (book: any) => {
           alert( this.book.name + ' saved successfully' );
         }
       );
+  }
+
+  onDelete() {
+    this.bookService.deleteBook(this.book._id)
+      .subscribe(
+        () => {
+        }
+      );
+    alert( 'The book is deleted successfully' );
+    this.router.navigate(['/']);
   }
 
 }
