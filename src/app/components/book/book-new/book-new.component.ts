@@ -50,6 +50,7 @@ export class BookNewComponent implements OnInit {
       number: this.number,
       price: this.price
     };
+    console.log(book.imageUrl);
     this.bookService.createBook(this._seller, book).subscribe(
       (createdBook) => {
         alert(createdBook.name + ' has been added!');

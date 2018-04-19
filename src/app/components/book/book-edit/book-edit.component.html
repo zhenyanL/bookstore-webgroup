@@ -1,3 +1,83 @@
-<p>
-  book-edit works!
-</p>
+<div class="container">
+  <div class="col-xs-4 hidden-xs">
+    <img class="img-responsive" [src]="book.imageUrl">
+  </div>
+
+  <div class="col-xs-8">
+    <form #f="ngForm">
+      <div class="form-group">
+        <label for="name">Book Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Effective Java" name="name" required ngModel [(ngModel)]="book.name" #localname="ngModel">
+      </div>
+      <div class="alert alert-danger" *ngIf="!localname.valid && localname.touched">
+        Book name is required
+      </div>
+
+
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" class="form-control" id="author" placeholder="Joshua Bloch" name="author" required ngModel [(ngModel)]="book.author" #localauthor="ngModel">
+      </div>
+      <div class="alert alert-danger" *ngIf="!localauthor.valid && localauthor.touched">
+        Author is required
+      </div>
+
+
+      <div class="form-group">
+        <label for="publisher">Publisher</label>
+        <input type="text" class="form-control" id="publisher" placeholder="Addison-Wesley" name="publisher" required ngModel [(ngModel)]="book.publisher" #localpublisher="ngModel">
+      </div>
+      <div class="alert alert-danger" *ngIf="!localpublisher.valid && localpublisher.touched">
+        Publisher is required
+      </div>
+
+
+      <div class="form-group">
+        <label for="year">Publish Year</label>
+        <input type="number" class="form-control" id="year" placeholder="2018" name="year" required ngModel [(ngModel)]="book.year" #localyear="ngModel">
+      </div>
+      <div class="alert alert-danger" *ngIf="!localyear.valid && localyear.touched">
+        Publish year is required
+      </div>
+
+
+      <div class="form-group">
+        <label for="price">Price ($)</label>
+        <input type="number" class="form-control" id="price" placeholder="100" name="price" required ngModel [(ngModel)]="book.price" #localprice="ngModel">
+      </div>
+      <div class="alert alert-danger" *ngIf="!localprice.valid && localprice.touched">
+        Price is required
+      </div>
+
+
+      <div class="form-group">
+        <label for="number">Stock Number</label>
+        <input type="number" class="form-control" id="number" placeholder="50" name="number" required ngModel [(ngModel)]="book.number" #localnumber="ngModel">
+      </div>
+      <div class="alert alert-danger" *ngIf="!localnumber.valid && localnumber.touched">
+        Stock number is required
+      </div>
+
+      <div class="form-group">
+        <label for="url">URL</label>
+        <input type="url" class="form-control" id="url" placeholder="http://www.website.com/picture.jpg" name="url" ngModel [(ngModel)]="book.imageUrl" #localurl="ngModel" required>
+      </div>
+      <div class="alert alert-danger" *ngIf="!localurl.valid && localurl.touched">
+        Url is required
+      </div>
+
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" rows="5" placeholder="A short description of the book" name="description" required ngModel [(ngModel)]="book.description" #localdescription="ngModel"></textarea>
+      </div>
+      <div class="alert alert-danger" *ngIf="!localdescription.valid && localdescription.touched">
+        Description is required
+      </div>
+      <button class="btn btn-primary btn-block"
+              type="button"
+              (click)="onSubmit()"
+              [disabled]="!f.valid">Update Book</button>
+    </form>
+  </div>
+</div>

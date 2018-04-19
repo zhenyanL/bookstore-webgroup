@@ -7,6 +7,7 @@ import {BookNewComponent} from './components/book/book-new/book-new.component';
 import {GelocationComponent} from './components/gelocation/gelocation.component';
 import {PrivateProfileComponent} from './components/user/private-profile/private-profile.component';
 import {AuthGuard} from './services/auth-guard.service';
+import {BookEditComponent} from './components/book/book-edit/book-edit.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: PrivateProfileComponent, canActivate: [AuthGuard]},
   {path: 'bookDetail', component: BookDetailComponent},
-  {path: 'addBook', component: BookNewComponent},
+  {path: 'addBook', component: BookNewComponent, canActivate: [AuthGuard]},
+  {path: 'editBook/:bid', component: BookEditComponent, canActivate: [AuthGuard]},
   {path: 'weather', component: GelocationComponent},
 ];
 

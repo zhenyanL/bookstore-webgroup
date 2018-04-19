@@ -60,7 +60,7 @@
 
       <div class="form-group">
         <label for="url">URL</label>
-        <input type="url" class="form-control" id="url" placeholder="URL" name="http://www.website.com/picture.jpg" ngModel #url="ngModel" required>
+        <input type="url" class="form-control" id="url" placeholder="http://www.website.com/picture.jpg" name="url" ngModel #url="ngModel" required>
       </div>
       <div class="alert alert-danger" *ngIf="!url.valid && url.touched">
         Url is required
