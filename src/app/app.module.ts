@@ -26,7 +26,7 @@ import { BookDetailComponent } from './components/book/book-detail/book-detail.c
 import { BookNewComponent } from './components/book/book-new/book-new.component';
 import { SlideshowComponent } from './components/slideshow/slideshow.component';
 import { BookEditComponent } from './components/book/book-edit/book-edit.component';
-import { GelocationComponent } from './components/geoWeather/gelocation.component';
+import { GelocationComponent } from './components/gelocation/gelocation.component';
 import {CommonModule} from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
 

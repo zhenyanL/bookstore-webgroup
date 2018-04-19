@@ -6,6 +6,8 @@ var BookSchema = mongoose.Schema ({
   _buyer: [{type : mongoose.Schema.ObjectId, ref: "User"}] ,
   name : String,
   author : String,
+  publisher: String,
+  publishYear: Number,
   description : String,
   imageUrl : String,
   number: Number,
