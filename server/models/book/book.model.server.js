@@ -6,6 +6,7 @@ var UserModel = require("../user/user.model.server");
 
 BookModel.createBookForSeller=createBookForSeller;
 BookModel.findAllBooksForUser=findAllBooksForUser;
+BookModel.findAllBooks=findAllBooks;
 BookModel.findBookById=findBookById;
 BookModel.updateBook=updateBook;
 BookModel.deleteBook=deleteBook;
@@ -36,6 +37,10 @@ function findAllBooksForUser(userId) {
       return BookModel.find({_buyer: userId});
     }
   });
+}
+
+function findAllBooks() {
+  return BookModel.find({});
 }
 
 function findBookById(bookId) {

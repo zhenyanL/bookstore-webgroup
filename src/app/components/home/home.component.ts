@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {CartService} from '../../services/cart.service.client';
+import {ActivatedRoute, Router} from '@angular/router';
+import {SharedService} from '../../services/shared.service.client';
+import {BookService} from '../../services/book.service.client';
+import {UserService} from '../../services/user.service.client';
 
 @Component({
   selector: 'app-home',
@@ -6,26 +11,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public products: any[];
-  private sub;
+  books: any[];
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute, private sharedService: SharedService, private userService: UserService
+    , private bookService: BookService, private router: Router, private cartService: CartService) { }
 
   ngOnInit() {
-    // this.load();
+    this.bookService.findAllBooks().subscribe(
+      (books) => {
+        this.books = books;
+        console.log(this.books);
+      }
+    );
   }
 
-  // load = () => {
-  //   this.sub = this.productService.getProducts('./assets/mock-data/products.json')
-  //     .subscribe(res => {
-  //       this.products = res;
-  //     })
-  // };
-  // addToCart = (product) => {
-  //   this.cartService.addToCart({product,quantity:1})
-  // };
-  // ngOnDestroy() {
-  //   this.sub.unsubscribe();
-  // }
+  addToCart(book) {
+    this.cartService.addToCart(book);
+  }
 
 }

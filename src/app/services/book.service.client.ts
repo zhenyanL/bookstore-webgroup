@@ -23,6 +23,13 @@ export class BookService {
     });
   }
 
+  findAllBooks() {
+    const url = this.baseUrl + '/api/books';
+    return this.http.get(url).map((response: Response) => {
+      return response.json();
+    });
+  }
+
   findBookById(bookId) {
     const url = this.baseUrl + '/api/book/' + bookId;
     return this.http.get(url).map((response: Response) => {
