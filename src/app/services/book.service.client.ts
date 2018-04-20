@@ -44,6 +44,13 @@ export class BookService {
     });
   }
 
+  buyOneBook(userId, bookId) {
+    const url = this.baseUrl + '/api/user/' + userId + '/book1/' + bookId;
+    return this.http.put(url, '').map((response: Response) => {
+      return response.json();
+    });
+  }
+
   addBookToShoppingList(userId, bookId) {
     const url = this.baseUrl + '/api/user/' + userId + '/book/' + bookId;
     return this.http.put(url, '').map((response: Response) => {

@@ -14,6 +14,7 @@ module.exports = function(app){
 
   // for buyer
   app.put("/api/user/:userId/book/:bookId", addBookToShoppingList);
+  app.put("/api/user/:userId/book1/:bookId", buyOneBook);
   app.put("/api/user/:userId/book", buyBooksInShopplingList);
 
 
@@ -75,6 +76,18 @@ module.exports = function(app){
     var userId = req.params['userId'];
     var bookId = req.params['bookId'];
     bookModel.addBookInShoppingList(bookId, userId)
+      .then(function(response){
+        res.status(200).json(response);
+      }, function(err) {
+        console.log(err);
+        res.status(500);
+      });
+  }
+
+  function buyOneBook(req, res) {
+    var userId = req.params['userId'];
+    var bookId = req.params['bookId'];
+    return bookModel.buyOneBook(bookId, userId)
       .then(function(response){
         res.status(200).json(response);
       }, function(err) {

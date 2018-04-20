@@ -31,6 +31,8 @@ import {CommonModule} from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
 import { CommentNewComponent } from './components/comment/comment-new/comment-new.component';
 import {CartService} from './services/cart.service.client';
+import { CartContentComponent } from './components/cart-content/cart-content.component';
+import { CommentEditComponent } from './components/comment/comment-edit/comment-edit.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import {CartService} from './services/cart.service.client';
     SlideshowComponent,
     BookEditComponent,
     GelocationComponent,
-    CommentNewComponent
+    CommentNewComponent,
+    CartContentComponent,
+    CommentEditComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ BookModel.findBookById=findBookById;
 BookModel.updateBook=updateBook;
 BookModel.deleteBook=deleteBook;
 BookModel.addBookInShoppingList=addBookInShoppingList;
+BookModel.buyOneBook=buyOneBook;
 BookModel.buyBooksInShoppingList = buyBooksInShoppingList;
 
 module.exports = BookModel;
@@ -41,6 +42,7 @@ function findBookById(bookId) {
   return BookModel.findById({_id: bookId});
 }
 
+
 function updateBook(bookId, book) {
   return BookModel.update({_id: bookId}, book);
 }
@@ -60,6 +62,22 @@ function addBookInShoppingList(bookId, userId) {
     .then(function(user){
       user.booksShoppingList.push(BookModel.findBookById(bookId));
       return user.save();
+    });
+}
+
+
+function buyOneBook(bookId, userId) {
+  return UserModel.findUserById(userId)
+    .then(function(user){
+      BookModel.findBookById(bookId)
+        .then(function(book) {
+          book.number--;
+          book._buyer.push(user._id);
+          user.books.push(book);
+          book.save();
+        });
+      user.save();
+      return user;
     });
 }
 

@@ -9,6 +9,7 @@ import {PrivateProfileComponent} from './components/user/private-profile/private
 import {AuthGuard} from './services/auth-guard.service';
 import {BookEditComponent} from './components/book/book-edit/book-edit.component';
 import {CommentNewComponent} from './components/comment/comment-new/comment-new.component';
+import {CartContentComponent} from './components/cart-content/cart-content.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   {path: 'bookDetail', component: BookDetailComponent},
   {path: 'addBook', component: BookNewComponent, canActivate: [AuthGuard]},
   {path: 'editBook/:bid', component: BookEditComponent, canActivate: [AuthGuard]},
+  {path: 'cart', component: CartContentComponent, canActivate: [AuthGuard]},
   {path: ':bid', component: BookDetailComponent},
   {path: 'weather', component: GelocationComponent},
   {path: ':bid/comment', component: CommentNewComponent, canActivate: [AuthGuard]},

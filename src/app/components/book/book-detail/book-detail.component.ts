@@ -40,6 +40,6 @@ export class BookDetailComponent implements OnInit {
   }
 
   onCart() {
-    this.cartService.addToCart(this.book._id);
+    this.cartService.addToCart(this.book);
   }
 }
