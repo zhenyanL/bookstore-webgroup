@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var commentSchema = mongoose.Schema({
   _book: {type: mongoose.Schema.Types.ObjectId, ref: 'Book'},
   _author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  username: String,
   title: String,
   rating: Number,
   description: String,

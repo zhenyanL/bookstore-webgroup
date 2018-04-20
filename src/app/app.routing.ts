@@ -8,6 +8,7 @@ import {GelocationComponent} from './components/gelocation/gelocation.component'
 import {PrivateProfileComponent} from './components/user/private-profile/private-profile.component';
 import {AuthGuard} from './services/auth-guard.service';
 import {BookEditComponent} from './components/book/book-edit/book-edit.component';
+import {CommentNewComponent} from './components/comment/comment-new/comment-new.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -17,7 +18,9 @@ const appRoutes: Routes = [
   {path: 'bookDetail', component: BookDetailComponent},
   {path: 'addBook', component: BookNewComponent, canActivate: [AuthGuard]},
   {path: 'editBook/:bid', component: BookEditComponent, canActivate: [AuthGuard]},
+  {path: ':bid', component: BookDetailComponent},
   {path: 'weather', component: GelocationComponent},
+  {path: ':bid/comment', component: CommentNewComponent, canActivate: [AuthGuard]},
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

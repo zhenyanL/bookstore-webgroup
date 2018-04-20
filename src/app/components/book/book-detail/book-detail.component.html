@@ -1,3 +1,86 @@
-<p>
-  book-detail works!
-</p>
+<div class="container">
+  <div class="col-xs-4 hidden-xs">
+    <img class="img-responsive" [src]="book?.imageUrl">
+  </div>
+
+  <div class="col-xs-8">
+    <form >
+      <div class="form-group">
+        <label for="name">Book Name</label>
+        <p id="name">{{book?.name}}</p>
+      </div>
+
+      <div class="form-group">
+        <label for="seller">Seller</label>
+        <p id="seller">{{seller?.username}}</p>
+      </div>
+
+      <div class="form-group">
+        <label for="author">Author</label>
+        <p id="author">{{book?.author}}</p>
+      </div>
+
+      <div class="form-group">
+        <label >Number Sold</label>
+        <p >{{book?._buyer.length}}</p>
+      </div>
+
+
+      <div class="form-group">
+        <label >Rating</label>
+        <p *ngIf="book?.comments.length !== 0">{{book?.rating}} out of 5</p>
+        <p *ngIf="book?.comments.length === 0">Be the first one to rate</p>
+        <a [routerLink]="['/', book?._id, 'comment']">Write a review</a>
+      </div>
+
+
+      <div class="form-group">
+        <label >Number of Reviews</label>
+        <p >{{book?.comments.length}}</p>
+      </div>
+
+      <div class="form-group">
+        <label for="publisher">Publisher</label>
+        <p id="publisher">{{book?.publisher}}</p>
+      </div>
+
+
+      <div class="form-group">
+        <label for="year">Publish Year</label>
+        <p id="year">{{book?.year}}</p>
+      </div>
+
+
+      <div class="form-group">
+        <label for="price">Price ($)</label>
+        <p id="price">{{book?.price}}</p>
+      </div>
+
+
+      <div class="form-group">
+        <label for="number">Stock Number</label>
+        <p id="number">{{book?.number}}</p>
+      </div>
+
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <p id="description">{{book?.description}}</p>
+      </div>
+
+      <button class="btn btn-success btn-block"
+              (click)="onCart()">Add to Cart</button>
+
+      <div *ngIf="book?.comments.length !== 0">
+        <label>Comments</label>
+        <ul class="list-group cl-list-group-borderless">
+          <li class="list-group-item cl-list-item-borderless" *ngFor="let comment of book?.comments">
+            <p><strong>{{comment?.username}}:</strong> {{comment?.title}}, <strong>{{comment?.rating}}/5</strong></p>
+            <p>{{comment?.description}}</p>
+          </li>
+        </ul>
+      </div>
+
+    </form>
+  </div>
+</div>

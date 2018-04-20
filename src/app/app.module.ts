@@ -14,7 +14,7 @@ import { ProfileSellerComponent } from './components/user/public-profile/profile
 import { ProfileBuyerComponent } from './components/user/public-profile/profile-buyer/profile-buyer.component';
 import { UserListComponent } from './components/user/user-list/user-list.component';
 import {BookService} from './services/book.service.client';
-import {CommentService} from './services/comment.service.server';
+import {CommentService} from './services/comment.service.client';
 import { PrivateProfileComponent } from './components/user/private-profile/private-profile.component';
 import { ProfileWriterComponent } from './components/user/public-profile/profile-writer/profile-writer.component';
 import {AuthGuard} from './services/auth-guard.service';
@@ -29,6 +29,8 @@ import { BookEditComponent } from './components/book/book-edit/book-edit.compone
 import { GelocationComponent } from './components/gelocation/gelocation.component';
 import {CommonModule} from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
+import { CommentNewComponent } from './components/comment/comment-new/comment-new.component';
+import {CartService} from './services/cart.service.client';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { AgmCoreModule } from '@agm/core';
     BookNewComponent,
     SlideshowComponent,
     BookEditComponent,
-    GelocationComponent
+    GelocationComponent,
+    CommentNewComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,7 @@ import { AgmCoreModule } from '@agm/core';
       apiKey: 'AIzaSyAf-g21YJ_o0NjbCZIGBFPlDIx5o68tJ7g'
     })
   ],
-  providers: [SharedService, UserService, BookService, CommentService, AuthGuard],
+  providers: [SharedService, UserService, BookService, CommentService, AuthGuard, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -48,7 +48,9 @@ export class BookNewComponent implements OnInit {
       description: this.description,
       imageUrl : this.imageUrl,
       number: this.number,
-      price: this.price
+      price: this.price,
+      ratingNumber: 0,
+      rating: 0
     };
     console.log(book.imageUrl);
     this.bookService.createBook(this._seller, book).subscribe(
