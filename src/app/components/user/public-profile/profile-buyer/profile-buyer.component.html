@@ -15,12 +15,18 @@
 </nav>
 
 <div class="container-fluid">
-  <h1>First Name: {{user.firstName}}</h1>
-  <h1>Last Name: {{user.lastName}}</h1>
-  <h1>Email: {{user.email}}</h1>
-  <a>Bought Books: {{user.books.length}}</a>
-  <a routerLink="./{{user._id}}/follow">Following: {{user.follow.length}}</a>
-  <a routerLink="./{{user._id}}/followby">Followed By: {{user.followedBy.length}}</a>
+  <h3>First Name: {{user.firstName}}</h3>
+  <h3>Last Name: {{user.lastName}}</h3>
+  <h3>Email: {{user.email}}</h3>
+  <div>
+  <a routerLink="/profile/{{user._id}}/book">Bought Books: {{user.books.length}}</a>
+  </div>
+  <div>
+  <a routerLink="/profile/{{user._id}}/following">Following: {{user.follow.length}}</a>
+  </div>
+  <div>
+  <a routerLink="/profile/{{user._id}}/followedby">Followed By: {{user.followedBy.length}}</a>
+  </div>
 </div>
 
 <nav class="navbar navbar-fixed-bottom blue-navbar">

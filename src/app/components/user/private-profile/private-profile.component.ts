@@ -17,8 +17,23 @@ export class PrivateProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.sharedService.user;
-    this.userId = this.user['_id'];
+    this.activatedRoute.params.subscribe(params => {
+      this.userId = params['uid'];
+      if (this.userId === undefined) {
+        this.user = this.sharedService.user;
+        this.userId = this.user['_id'];
+      } else {
+        const myself = this.sharedService.user;
+        if (myself['role'] === 'ADMIN') {
+          this.userService.findUserById(this.userId).subscribe(
+            (user) => {
+              this.user = user;
+            });
+        } else {
+          this.route.navigate(['/profile', this.userId]);
+        }
+      }
+    });
   }
 
   logout() {

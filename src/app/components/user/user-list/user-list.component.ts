@@ -13,7 +13,7 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    return this.userService.findAllUsers().subscribe(
+    this.userService.findAllUsers().subscribe(
       (users) => {
         this.users = users;
       }

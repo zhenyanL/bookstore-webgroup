@@ -29,6 +29,8 @@ import { BookEditComponent } from './components/book/book-edit/book-edit.compone
 import { GelocationComponent } from './components/gelocation/gelocation.component';
 import {CommonModule} from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
+import { FollowingListComponent } from './components/user/following-list/following-list.component';
+import { FollowedbyListComponent } from './components/user/followedby-list/followedby-list.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { AgmCoreModule } from '@agm/core';
     BookNewComponent,
     SlideshowComponent,
     BookEditComponent,
-    GelocationComponent
+    GelocationComponent,
+    FollowingListComponent,
+    FollowedbyListComponent
   ],
   imports: [
     BrowserModule,
