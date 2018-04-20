@@ -33,6 +33,8 @@ import { CommentNewComponent } from './components/comment/comment-new/comment-ne
 import {CartService} from './services/cart.service.client';
 import { CartContentComponent } from './components/cart-content/cart-content.component';
 import { CommentEditComponent } from './components/comment/comment-edit/comment-edit.component';
+import { FollowingListComponent } from './components/user/following-list/following-list.component';
+import { FollowedbyListComponent } from './components/user/followedby-list/followedby-list.component';
 
 @NgModule({
   declarations: [
@@ -54,9 +56,11 @@ import { CommentEditComponent } from './components/comment/comment-edit/comment-
     SlideshowComponent,
     BookEditComponent,
     GelocationComponent,
+    FollowingListComponent,
+    FollowedbyListComponent
     CommentNewComponent,
-    CartContentComponent,
     CommentEditComponent
+    CartContentComponent,
   ],
   imports: [
     BrowserModule,

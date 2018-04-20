@@ -7,6 +7,10 @@ import {BookNewComponent} from './components/book/book-new/book-new.component';
 import {GelocationComponent} from './components/gelocation/gelocation.component';
 import {PrivateProfileComponent} from './components/user/private-profile/private-profile.component';
 import {AuthGuard} from './services/auth-guard.service';
+import {PublicProfileComponent} from './components/user/public-profile/public-profile.component';
+import {FollowingListComponent} from './components/user/following-list/following-list.component';
+import {FollowedbyListComponent} from './components/user/followedby-list/followedby-list.component';
+import {UserListComponent} from './components/user/user-list/user-list.component';
 import {BookEditComponent} from './components/book/book-edit/book-edit.component';
 import {CommentNewComponent} from './components/comment/comment-new/comment-new.component';
 import {CartContentComponent} from './components/cart-content/cart-content.component';
@@ -16,6 +20,11 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: PrivateProfileComponent, canActivate: [AuthGuard]},
+  {path: 'profile/:uid', component: PublicProfileComponent, canActivate: [AuthGuard]},
+  {path: 'profile/:uid/edit', component: PrivateProfileComponent, canActivate: [AuthGuard]},
+  {path: 'profile/:uid/following', component: FollowingListComponent, canActivate: [AuthGuard]},
+  {path: 'profile/:uid/followedby', component: FollowedbyListComponent, canActivate: [AuthGuard]},
+  {path: 'user', component: UserListComponent, canActivate: [AuthGuard]},
   {path: 'bookDetail', component: BookDetailComponent},
   {path: 'addBook', component: BookNewComponent, canActivate: [AuthGuard]},
   {path: 'editBook/:bid', component: BookEditComponent, canActivate: [AuthGuard]},
