@@ -12,6 +12,7 @@ export class ProfileBuyerComponent implements OnInit {
   myId: string;
   userId: string;
   user: any;
+  hasFollowed: boolean;
 
   constructor(private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router,
               private sharedService: SharedService) { }
@@ -23,6 +24,21 @@ export class ProfileBuyerComponent implements OnInit {
       return this.userService.findUserById(this.userId).subscribe(
         (user) => {
           this.user = user;
+          this.sharedService.followingList = [];
+          this.sharedService.followedList = [];
+          for (const followingUserId of user.follow) {
+            this.userService.findUserById(followingUserId).subscribe(
+              (followingUser) => this.sharedService.followingList.push(followingUser)
+            );
+          }
+          for (const followedUserId of user.followedBy) {
+            if (followedUserId === this.myId) {
+              this.hasFollowed = true;
+            }
+            this.userService.findUserById(followedUserId).subscribe(
+              (followedUser) => this.sharedService.followedList.push(followedUser)
+            );
+          }
         }
       );
     });

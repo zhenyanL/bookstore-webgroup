@@ -35,6 +35,8 @@ import { CartContentComponent } from './components/cart-content/cart-content.com
 import { CommentEditComponent } from './components/comment/comment-edit/comment-edit.component';
 import { FollowingListComponent } from './components/user/following-list/following-list.component';
 import { FollowedbyListComponent } from './components/user/followedby-list/followedby-list.component';
+import { BookListComponent } from './components/book/book-list/book-list.component';
+import { BuyerListComponent } from './components/user/buyer-list/buyer-list.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { FollowedbyListComponent } from './components/user/followedby-list/follo
     CommentNewComponent,
     CommentEditComponent,
     CartContentComponent,
+    BookListComponent,
+    BuyerListComponent,
   ],
   imports: [
     BrowserModule,

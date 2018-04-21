@@ -1,12 +1,4 @@
-<nav class="navbar blue-navbar navbar-fiexed-top">
-  <div class="container-fluid">
-    <a class="text-white navbar-brand text-bold">
-      Profile
-    </a>
-  </div>
-</nav>
-
-<div class="container-fluid">
+<div style="margin-top: 40px" class="container col-sm-4 col-sm-offset-4">
   <div class="form-group">
     <label>Username</label>
     <input [(ngModel)]="user.username" placeholder="alice" id="username" type="text" class="form-control">
@@ -42,9 +34,10 @@
     <input [(ngModel)]="user.lastName" placeholder="Wonderland" id="lastName" type="text" class="form-control">
   </div>
   <div>
+    <button class="btn btn-info btn-block" type="button" routerLink="/profile/{{user._id}}">Details</button>
     <button (click)="updateUser()" class="btn btn-success btn-block" type="button">Update</button>
-    <button class="btn btn-primary btn-block" type="button" (click)="logout()">Logout</button>
+    <button class="btn btn-warning btn-block" type="button" (click)="logout()">Logout</button>
     <button (click)="deleteUser()" class="btn btn-danger btn-block" type="button">Delete</button>
-    <button class="btn btn-primary btn-block" type="button" routerLink="/profile/{{user._id}}">Details</button>
+
   </div>
 </div>

@@ -5,6 +5,8 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 export class SharedService {
   user: {};
   book: {};
+  followingList: any[];
+  followedList: any[];
 
   private userSubject = new BehaviorSubject<any>(undefined);
   currentUser = this.userSubject.asObservable();

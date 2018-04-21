@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
     if (this.password === verify) {
       this.userService.register(this.username, this.password, this.role).subscribe(
         (user) => {
+          this.sharedService.updateUser(user);
           alert(this.username + ' has been created!');
           this.sharedService.user = user;
           this.router.navigate(['/profile']);

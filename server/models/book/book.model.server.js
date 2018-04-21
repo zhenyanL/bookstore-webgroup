@@ -81,8 +81,7 @@ function buyOneBook(bookId, userId) {
           user.books.push(book);
           book.save();
         });
-      user.save();
-      return user;
+      return user.save();
     });
 }
 

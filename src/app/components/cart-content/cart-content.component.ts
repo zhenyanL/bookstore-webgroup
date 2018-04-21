@@ -3,6 +3,7 @@ import {CartService} from '../../services/cart.service.client';
 import {BookService} from '../../services/book.service.client';
 import {SharedService} from '../../services/shared.service.client';
 import {Router} from '@angular/router';
+import {UserService} from '../../services/user.service.client';
 
 @Component({
   selector: 'app-cart-content',
@@ -13,11 +14,16 @@ export class CartContentComponent implements OnInit {
   userId: string;
   total: number;
   books: any[];
+  user: any;
 
-  constructor(private sharedService: SharedService, private cartService: CartService, private bookService: BookService, private router: Router) { }
+  constructor(private sharedService: SharedService, private cartService: CartService, private bookService: BookService, private router: Router, private userServie: UserService) { }
 
   ngOnInit() {
     this.userId = this.sharedService.user['_id'];
+    this.userServie.findUserById(this.userId)
+      .subscribe(
+        (user) => this.user = user
+      );
     this.cartService.currentCart.subscribe(
       (books: any) => {
         this.total = 0;

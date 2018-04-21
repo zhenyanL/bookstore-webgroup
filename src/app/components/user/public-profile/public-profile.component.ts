@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {UserService} from '../../../services/user.service.client';
+import {SharedService} from '../../../services/shared.service.client';
 
 @Component({
   selector: 'app-public-profile',
@@ -11,7 +12,7 @@ export class PublicProfileComponent implements OnInit {
   userId: string;
   user: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private userService: UserService) { }
+  constructor(private activatedRoute: ActivatedRoute, private userService: UserService, private sharedService: SharedService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {

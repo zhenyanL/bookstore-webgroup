@@ -1,5 +1,4 @@
-<div class="container">
-  <h1>Login</h1>
+<div style="margin-top: 90px" class="container col-sm-4 col-sm-offset-4">
 
   <form (ngSubmit) = "login()" #f="ngForm">
     <div *ngIf="errorFlag"
@@ -24,7 +23,7 @@
       </span>
     </div>
 
-    <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.valid">Login</button>
+    <button class="btn btn-info btn-block" type="submit" [disabled]="!f.valid">Login</button>
     <button class="btn btn-success btn-block" type="button" routerLink="/register">Register</button>
     <a href="https://webdev-yinguang-zhao.herokuapp.com/facebook/login" class="btn btn-primary btn-block" type="button" >
       <span class="fa fa-facebook"></span>Facebook</a>

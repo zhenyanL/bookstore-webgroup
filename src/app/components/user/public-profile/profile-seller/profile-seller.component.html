@@ -1,38 +1,36 @@
-<nav class="navbar blue-navbar navbar-fiexed-top">
-  <div class="container-fluid">
-    <p class="navbar-text pull-left">
-      <a routerLink=".." class="text-white">
-        <span class="glyphicon glyphicon-chevron-left text-white"></span>
-      </a>
-    </p>
-    <a class="text-white navbar-brand text-bold" routerLink="./">
-      Profile for Seller {{user.username}}
-    </a>
-    <a (click)="follow()" class="navbar-text pull-right text-white icon-padding">
-      <span class="glyphicon glyphicon-plus"></span>
-    </a>
+<div>
+  <div class="form-group">
+    <h3 id="title"><strong>Profile for Seller: {{user.username}}</strong></h3>
   </div>
-</nav>
+  <form>
 
-<div class="container-fluid">
-  <h3>First Name: {{user.firstName}}</h3>
-  <h3>Last Name: {{user.lastName}}</h3>
-  <h3>Email: {{user.email}}</h3>
-  <div>
-  <a routerLink="/profile/{{user._id}}/book">Owned Books: {{user.books.length}}</a>
-  </div>
-  <div>
-  <a routerLink="/profile/{{user._id}}/following">Following: {{user.follow.length}}</a>
-  </div>
-  <div>
-  <a routerLink="/profile/{{user._id}}/followedby">Followed By: {{user.followedBy.length}}</a>
-  </div>
+    <div class="form-group">
+      <p id="firstName">First Name:  {{user.firstName}}</p>
+    </div>
+
+    <div class="form-group">
+      <p id="lastName">Last Name:  {{user.lastName}}</p>
+    </div>
+
+    <div class="form-group">
+      <p id="email">Email:  {{user.email}}</p>
+    </div>
+
+    <div class="form-group">
+      <a routerLink="/profile/{{user._id}}/book">Books he/she is selling:  {{user.books.length}}</a>
+    </div>
+
+
+    <div class="form-group">
+      <a routerLink="/profile/{{user._id}}/following">Following:  {{user.follow.length}}</a>
+    </div>
+
+
+    <div class="form-group">
+      <a routerLink="/profile/{{user._id}}/followedby">Followers  {{user.followedBy.length}}</a>
+      <h4 *ngIf="hasFollowed">You have followed</h4>
+      <button *ngIf="!hasFollowed" (click)="follow()">Follow</button>
+    </div>
+
+  </form>
 </div>
-
-<nav class="navbar navbar-fixed-bottom blue-navbar">
-  <div class="container-fluid">
-    <a routerLink="/profile" class="navbar-text pull-right text-white icon-padding">
-      <span class="glyphicon glyphicon-user"></span>
-    </a>
-  </div>
-</nav>

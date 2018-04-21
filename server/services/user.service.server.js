@@ -149,6 +149,7 @@ module.exports = function (app) {
       });
   }
 
+
   function findUserById(req, res) {
     var userId = req.params["userId"];
     userModel.findUserById(userId).then(function (user){

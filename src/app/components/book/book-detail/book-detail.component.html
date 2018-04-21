@@ -22,7 +22,7 @@
 
       <div class="form-group">
         <label >Number Sold</label>
-        <p >{{book?._buyer.length}}</p>
+        <a [routerLink]="['/book', book._id, 'user']">{{book?._buyer.length}}</a>
       </div>
 
 
@@ -30,7 +30,7 @@
         <label >Rating</label>
         <p *ngIf="book?.comments.length !== 0">{{book?.rating}} out of 5</p>
         <p *ngIf="book?.comments.length === 0">Be the first one to rate</p>
-        <a [routerLink]="['/', book?._id, 'comment']">Write a review</a>
+        <a [routerLink]="['/book', book?._id, 'comment/new']">Write a review</a>
       </div>
 
 
@@ -70,7 +70,7 @@
 
       <button class="btn btn-primary btn-block"
               *ngIf="book?._seller === userId"
-              [routerLink]="['/editBook', book?._id]">Edit Book</button>
+              [routerLink]="['/book', book?._id, 'edit']">Edit Book</button>
 
       <div *ngIf="book?.comments.length !== 0">
         <label>Comments</label>
@@ -78,7 +78,7 @@
           <li class="list-group-item cl-list-item-borderless" *ngFor="let comment of book?.comments">
             <p><strong>{{comment?.username}}:</strong> {{comment?.title}}, <strong>{{comment?.rating}}/5</strong></p>
             <p>{{comment?.description}}</p>
-            <button [routerLink]="['/', book?._id, 'comment', comment?._id]">Edit</button>
+            <button [routerLink]="['/book', book?._id, 'comment', comment?._id]">Edit</button>
           </li>
         </ul>
       </div>

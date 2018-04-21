@@ -48,6 +48,7 @@ function findAllUsers() {
   });
 }
 
+
 function followUser(myId, userId) {
   UserModel.findUserById(myId)
     .then(function(user){

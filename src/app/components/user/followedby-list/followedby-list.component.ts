@@ -10,7 +10,7 @@ import {UserService} from '../../../services/user.service.client';
 })
 export class FollowedbyListComponent implements OnInit {
   userId: string;
-  followedBy: [any];
+  followedBy: any[];
 
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private sharedService: SharedService) { }
 
@@ -20,13 +20,7 @@ export class FollowedbyListComponent implements OnInit {
       if (this.userId === undefined) {
         this.userId = this.sharedService.user['_id'];
       }
-      return this.userService.findUserById(this.userId).subscribe(
-        (user) => {
-          for (const userId of user.followedBy) {
-            const u = this.userService.findUserById(userId);
-            this.followedBy.push(u);
-          }
-          });
+      this.followedBy = this.sharedService.followedList;
     });
   }
 

@@ -6,7 +6,7 @@
       <div class="image-container">
         <div class="product-image" [ngStyle]="{'background-image': 'url(' + book.imageUrl + ')'}"></div>
         <div class="overlay">
-          <div class="button button-primary" [routerLink]="['/', book._id]">View Details</div>
+          <div class="button button-primary" [routerLink]="['/book', book._id]">View Details</div>
           <div class="button button-primary" (click)="addToCart(book)">Add To Cart</div>
         </div>
       </div>

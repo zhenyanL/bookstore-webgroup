@@ -17,16 +17,8 @@ export class FollowingListComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.userId = params['uid'];
-      if (this.userId === undefined) {
-        this.userId = this.sharedService.user['_id'];
-      }
-      this.userService.findUserById(this.userId).subscribe(
-        (user) => {
-          for (const userId of user.follow) {
-            const u = this.userService.findUserById(userId);
-            this.follow.push(u);
-          }
-        });
+      this.follow = this.sharedService.followingList;
+
     });
   }
 

@@ -46,8 +46,7 @@ export class NavbarComponent implements OnInit {
       .subscribe(
         (user: any) => {
           this.errorFlag = false;
-          this.sharedService.user = user;
-          this.loggedFlag = true;
+          this.sharedService.updateUser(user);
           if (this.route.url === '/login') {
             this.route.navigate(['/profile']);
           }

@@ -1,5 +1,5 @@
-<div class="container">
-  <h1>Register</h1>
+<div style="margin-top: 90px" class="container col-sm-4 col-sm-offset-4">
+
   <form (ngSubmit) = "register()" #f="ngForm">
     <div *ngIf="errorMsg"
          class="alert alert-danger">
@@ -37,7 +37,7 @@
         </label>
       </div>
     </div>
-    <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.valid">Register</button>
-    <button class="btn btn-danger btn-block" type="button" routerLink="/login">Cancel</button>
+    <button class="btn btn-info btn-block" type="submit" [disabled]="!f.valid">Register</button>
+    <button class="btn btn-default btn-block" type="button" routerLink="/login">Cancel</button>
   </form>
 </div>
