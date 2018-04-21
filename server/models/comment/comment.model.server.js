@@ -54,15 +54,16 @@ function deleteComment(commentId) {
       BookModel.findBookById(comment._book).then(function(book){
         let oldComment = book.comments.find(x => x._id == commentId);
         let index = book.comments.indexOf(oldComment);
-        book.comments.splice(index, 1);
-        let sum = 0;
-        for (let comment of book.comments) {
-          sum += comment.rating;
+        let temp = (book.rating * book.comments.length - comment.rating) / (book.comments.length - 1);
+        if (temp > 0) {
+          book.rating = temp;
+        } else {
+          book.rating = 0;
         }
-        book.rating = sum / book.comments.length;
+        book.comments.splice(index, 1);
         book.save();
-        return CommentModel.remove({_id: commentId});
       });
+      return CommentModel.remove({_id: commentId});
     }
   );
 }
