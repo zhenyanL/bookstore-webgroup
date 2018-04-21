@@ -12,6 +12,7 @@ import {SharedService} from '../../../services/shared.service.client';
 })
 export class BookNewComponent implements OnInit {
   @ViewChild('f') registerForm: NgForm;
+  userId: string;
   _seller: string;
   name: string;
   author: string;
@@ -27,7 +28,17 @@ export class BookNewComponent implements OnInit {
   }
 
   ngOnInit() {
-      this._seller = this.sharedService.user['_id'];
+      this.userId = this.sharedService.user['_id'];
+      this.userService.findUserById(this.userId)
+        .subscribe(
+          (user) => {
+            if (user.role !== 'SELLER') {
+              this.router.navigate(['/']);
+            } else {
+              this._seller = this.userId;
+            }
+          }
+        );
   }
 
   onSubmit() {
