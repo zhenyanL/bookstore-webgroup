@@ -41,7 +41,7 @@ export class CommentEditComponent implements OnInit {
   }
 
   delete() {
-    this.commentService.deleteComment(this.comment._id);
+    this.commentService.deleteComment(this.comment._id).subscribe();
     console.log('Delete button is pressed');
   }
 

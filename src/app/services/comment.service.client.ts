@@ -40,8 +40,6 @@ export class CommentService {
   deleteComment(commentId) {
     const url = this.baseUrl + '/api/comment/' + commentId;
     console.log('gonna delete request');
-    return this.http.delete(url).map((response: Response) => {
-      return response.json();
-    });
+    return this.http.delete(url);
   }
 }

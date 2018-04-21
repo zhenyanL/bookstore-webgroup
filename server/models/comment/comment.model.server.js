@@ -55,6 +55,11 @@ function deleteComment(commentId) {
         let oldComment = book.comments.find(x => x._id == commentId);
         let index = book.comments.indexOf(oldComment);
         book.comments.splice(index, 1);
+        let sum = 0;
+        for (let comment of book.comments) {
+          sum += comment.rating;
+        }
+        book.rating = sum / book.comments.length;
         book.save();
         return CommentModel.remove({_id: commentId});
       });

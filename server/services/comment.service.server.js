@@ -53,12 +53,8 @@ module.exports = function(app){
   function deleteComment(req, res){
     var commentId = req.params['commentId'];
     commentModel.deleteComment(commentId)
-      .then(function(response){
-        res.status(200).json(response);
-      }, function(err) {
-        console.log(err);
-        res.status(500);
-      });
+      .then(() => (
+      res.sendStatus(200)));
   }
 
 };
