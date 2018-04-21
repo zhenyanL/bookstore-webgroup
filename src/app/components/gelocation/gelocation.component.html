@@ -14,8 +14,8 @@
       <div class="weatherDetail">
         <p><strong>City:</strong> {{city}}</p>
         <img [src]="iconUrl">
-        <p><strong>Weather:</strong> {{currWeather}},   <strong>Current Temperature:</strong> {{currTemp}}</p>
-        <p><strong>Min Temperature:</strong> {{minTemp}},   <strong>Max Temperature:</strong> {{maxTemp}}</p>
+        <p><strong>Weather:</strong> {{currWeather}},   <strong>Current Temperature:</strong> {{currTemp}} &deg;C</p>
+        <p><strong>Min Temperature:</strong> {{minTemp}} &deg;C,   <strong>Max Temperature:</strong> {{maxTemp}} &deg;C</p>
       </div>
 
       <form (ngSubmit)="onSubmit()" #f="ngForm">

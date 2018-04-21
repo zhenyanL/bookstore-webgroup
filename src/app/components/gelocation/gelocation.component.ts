@@ -16,9 +16,9 @@ export class GelocationComponent implements OnInit {
   city =  'loading';
   iconUrl: string;
   currWeather =  'loading';
-  currTemp = 0;
-  minTemp = 0;
-  maxTemp = 0;
+  currTemp = '0';
+  minTemp = '0';
+  maxTemp = '0';
 
 
   constructor(private http: Http) { }
@@ -62,11 +62,12 @@ export class GelocationComponent implements OnInit {
     })).subscribe((weather: any) => {
       this.weather = weather;
       console.log(this.weather);
+      this.city = this.weather.name;
       this.iconUrl = 'http://openweathermap.org/img/w/' + this.weather.weather[0].icon + '.png';
       this.currWeather = this.weather.weather[0].main;
-      this.currTemp = this.weather.main.temp - 273.15;
-      this.minTemp = this.weather.main.temp_min - 273.15;
-      this.maxTemp = this.weather.main.temp_max - 273.15;
+      this.currTemp = (this.weather.main.temp - 273.15).toFixed(2);
+      this.minTemp = (this.weather.main.temp_min - 273.15).toFixed(2);
+      this.maxTemp = (this.weather.main.temp_max - 273.15).toFixed(2);
       this.currentLong = this.weather.coord.lon;
       this.currentLat = this.weather.coord.lat;
       // this.city = this.weather.name;
