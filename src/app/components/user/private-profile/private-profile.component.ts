@@ -37,8 +37,11 @@ export class PrivateProfileComponent implements OnInit {
   }
 
   logout() {
+    this.sharedService.clearUser();
     this.userService.logout().subscribe(
-      (data: any) => this.route.navigate(['/login'])
+      (data: any) => {
+        this.route.navigate(['/login']);
+      }
     );
   }
 

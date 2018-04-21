@@ -4,6 +4,7 @@
   <nav class="navbar navbar-default">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="alert alert-danger" role="alert" *ngIf="errorFlag">{{errorMessage}}</div>
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
           <span class="sr-only">Toggle navigation</span>
@@ -24,20 +25,22 @@
           <li><a href="#">News</a></li>
           <li><a href="#">Contact</a></li>
           <li>
-            <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign in</a>
+            <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2" *ngIf="!loggedFlag">Account</a>
+            <a class="btn btn-default btn-outline btn-circle collapsed btn-sm"  aria-expanded="false" aria-controls="nav-collapse2" *ngIf="loggedFlag" [routerLink]="['/profile']">Profile</a>
           </li>
         </ul>
-        <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse2">
-          <form class="navbar-form navbar-right form-inline" role="form">
+        <div class="collapse nav navbar-nav nav-collapse slide-down btn-group" id="nav-collapse2" *ngIf="!loggedFlag">
+          <form class="navbar-form navbar-right form-inline" role="form" (ngSubmit) = "login()" #f="ngForm">
             <div class="form-group">
-              <label class="sr-only" for="Email">Email</label>
-              <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
+              <label class="sr-only" for="username">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Username" autofocus required name="username" ngModel #username="ngModel"/>
             </div>
             <div class="form-group">
               <label class="sr-only" for="Password">Password</label>
-              <input type="password" class="form-control" id="Password" placeholder="Password" required />
+              <input type="password" class="form-control" id="Password" placeholder="Password" required name="password" ngModel #password="ngModel"/>
             </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
+            <button type="button" style="width: 78px !important;" class="added-btn btn btn-info btn-circle btn-sm" [routerLink]="['/register']">Register</button>
+            <button type="submit" style="width: 78px !important;" class="added-btn btn btn-info btn-circle btn-sm" [disabled]="!f.valid">Login</button>
           </form>
         </div>
       </div><!-- /.navbar-collapse -->
@@ -46,3 +49,5 @@
 
 </div><!-- /.container-fluid -->
 
+
+<!--<button (click)="test()">test local user</button>-->

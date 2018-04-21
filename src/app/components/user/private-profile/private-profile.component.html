@@ -43,7 +43,7 @@
   </div>
   <div>
     <button (click)="updateUser()" class="btn btn-success btn-block" type="button">Update</button>
-    <button class="btn btn-primary btn-block" type="button" routerLink="/login">Logout</button>
+    <button class="btn btn-primary btn-block" type="button" (click)="logout()">Logout</button>
     <button (click)="deleteUser()" class="btn btn-danger btn-block" type="button">Delete</button>
     <button class="btn btn-primary btn-block" type="button" routerLink="/profile/{{user._id}}">Details</button>
   </div>

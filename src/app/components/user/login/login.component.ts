@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import {UserService} from '../../../services/user.service.client';
 import {Router} from '@angular/router';
 import {SharedService} from '../../../services/shared.service.client';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   password: string;
   errorFlag: boolean;
 
-  constructor(private userService: UserService, private router: Router, private sharedService: SharedService) { }
+  constructor(private userService: UserService, private router: Router, private sharedService: SharedService, private location: Location) { }
 
   login() {
     this.username = this.loginForm.value.username;
@@ -27,7 +28,8 @@ export class LoginComponent implements OnInit {
         (user: any) => {
           this.sharedService.user = user;
           this.errorFlag = false;
-          this.router.navigate(['/profile']);
+          // this.router.navigate(['/profile']);
+          this.location.back();
         },
         (error: any) => {
           console.log(error);
