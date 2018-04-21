@@ -57,9 +57,9 @@ import { FollowedbyListComponent } from './components/user/followedby-list/follo
     BookEditComponent,
     GelocationComponent,
     FollowingListComponent,
-    FollowedbyListComponent
+    FollowedbyListComponent,
     CommentNewComponent,
-    CommentEditComponent
+    CommentEditComponent,
     CartContentComponent,
   ],
   imports: [

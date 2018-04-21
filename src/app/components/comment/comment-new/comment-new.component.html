@@ -11,7 +11,7 @@
 
     <div class="form-group">
       <label for="rating">Rating out of 5</label>
-      <input type="number" max="5" class="form-control" id="rating" placeholder="4" name="rating" required ngModel #rating="ngModel">
+      <input type="number" min="0" max="5" class="form-control" id="rating" placeholder="4" name="rating" required ngModel #rating="ngModel">
     </div>
     <div class="alert alert-danger" *ngIf="!rating.valid && rating.touched">
       Rating is required
@@ -28,6 +28,6 @@
     <button class="btn btn-primary btn-block"
             type="button"
             (click)="onSubmit()"
-            [disabled]="!f.valid">Add Book</button>
+            [disabled]="!f.valid">Add Comment</button>
   </form>
 </div>

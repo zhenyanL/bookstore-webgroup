@@ -14,6 +14,7 @@ import {UserListComponent} from './components/user/user-list/user-list.component
 import {BookEditComponent} from './components/book/book-edit/book-edit.component';
 import {CommentNewComponent} from './components/comment/comment-new/comment-new.component';
 import {CartContentComponent} from './components/cart-content/cart-content.component';
+import {CommentEditComponent} from './components/comment/comment-edit/comment-edit.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   {path: ':bid', component: BookDetailComponent},
   {path: 'weather', component: GelocationComponent},
   {path: ':bid/comment', component: CommentNewComponent, canActivate: [AuthGuard]},
+  {path: ':bid/comment/:cid', component: CommentEditComponent, canActivate: [AuthGuard]},
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

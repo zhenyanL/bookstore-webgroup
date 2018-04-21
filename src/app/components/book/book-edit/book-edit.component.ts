@@ -13,18 +13,8 @@ import {SharedService} from '../../../services/shared.service.client';
 export class BookEditComponent implements OnInit {
   @ViewChild('f') registerForm: NgForm;
   currentSellerId: string;
-  book = {
-    _id: '',
-    _seller: '',
-    name: '',
-    author: '',
-    publisher: '',
-    year: '',
-    description: '',
-    imageUrl: '',
-    number: '',
-    price: '',
-  };
+  book: any;
+  bookId: string;
 
 
   constructor(private activatedRoute: ActivatedRoute, private sharedService: SharedService, private userService: UserService
@@ -35,18 +25,23 @@ export class BookEditComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
-          this.book._id = params['bid'];
-          this.bookService.findBookById(this.book._id)
-            .subscribe((book: any) => {
-            if (book) {
-              this.book = book;
-              if (book._seller !== this.currentSellerId) {
-                this.router.navigate(['/']);
-              }
-            } else {
-              this.router.navigate(['/']);
-            }
-          });
+          this.bookId = params['bid'];
+          if (this.sharedService.book !== undefined && this.sharedService.book['_id'] === this.bookId) {
+            this.book = this.sharedService.book;
+          } else {
+            this.bookService.findBookById(this.bookId)
+              .subscribe((book: any) => {
+                if (book) {
+                  if (book._seller !== this.currentSellerId) {
+                    this.router.navigate(['/']);
+                  }
+                  this.book = book;
+                } else {
+                  this.router.navigate(['/']);
+                }
+              });
+          }
+
         }
       );
   }

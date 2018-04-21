@@ -1,3 +1,36 @@
-<p>
-  comment-edit works!
-</p>
+<div class=container>
+  <form #f="ngForm">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" placeholder="Nice Book" name="title" required ngModel [(ngModel)]="comment.title"  #title="ngModel">
+    </div>
+    <div class="alert alert-danger" *ngIf="!title.valid && title.touched">
+      Comment title is required
+    </div>
+
+
+    <div class="form-group">
+      <label for="rating">Rating out of 5</label>
+      <input type="number" min="0" max="5" class="form-control" id="rating" placeholder="4" name="rating" required ngModel [(ngModel)]="comment.rating" #rating="ngModel">
+    </div>
+    <div class="alert alert-danger" *ngIf="!rating.valid && rating.touched">
+      Rating is required
+    </div>
+
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-control" rows="5" placeholder="A short description of the book" name="description" [(ngModel)]="comment.description" required ngModel #description="ngModel"></textarea>
+    </div>
+    <div class="alert alert-danger" *ngIf="!description.valid && description.touched">
+      Description is required
+    </div>
+    <button class="btn btn-primary btn-block"
+            type="button"
+            (click)="update()"
+            [disabled]="!f.valid">Update Comment</button>
+    <button class="btn btn-danger btn-block"
+            type="button"
+            (click)="delete()">Delete Comment</button>
+  </form>
+</div>

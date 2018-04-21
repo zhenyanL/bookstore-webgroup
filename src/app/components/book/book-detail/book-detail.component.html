@@ -58,12 +58,6 @@
 
 
       <div class="form-group">
-        <label for="number">Stock Number</label>
-        <p id="number">{{book?.number}}</p>
-      </div>
-
-
-      <div class="form-group">
         <label for="description">Description</label>
         <p id="description">{{book?.description}}</p>
       </div>
@@ -74,12 +68,17 @@
       <button class="btn btn-primary btn-block"
               [routerLink]="['/cart']">Go to Cart</button>
 
+      <button class="btn btn-primary btn-block"
+              *ngIf="book?._seller === userId"
+              [routerLink]="['/editBook', book?._id]">Edit Book</button>
+
       <div *ngIf="book?.comments.length !== 0">
         <label>Comments</label>
         <ul class="list-group cl-list-group-borderless">
           <li class="list-group-item cl-list-item-borderless" *ngFor="let comment of book?.comments">
             <p><strong>{{comment?.username}}:</strong> {{comment?.title}}, <strong>{{comment?.rating}}/5</strong></p>
             <p>{{comment?.description}}</p>
+            <button [routerLink]="['/', book?._id, 'comment', comment?._id]">Edit</button>
           </li>
         </ul>
       </div>
