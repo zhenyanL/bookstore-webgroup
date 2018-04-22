@@ -17,6 +17,8 @@ import {CartContentComponent} from './components/cart-content/cart-content.compo
 import {CommentEditComponent} from './components/comment/comment-edit/comment-edit.component';
 import {BookListComponent} from './components/book/book-list/book-list.component';
 import {BuyerListComponent} from './components/user/buyer-list/buyer-list.component';
+import {EditorComponent} from './components/editor/editor.component';
+import {SharedBookComponent} from './components/new-shared-book/shared-book.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -37,6 +39,8 @@ const appRoutes: Routes = [
   {path: 'book/:bid/edit', component: BookEditComponent, canActivate: [AuthGuard]},
   {path: 'book/:bid/comment/new', component: CommentNewComponent, canActivate: [AuthGuard]},
   {path: 'book/:bid/comment/:cid', component: CommentEditComponent, canActivate: [AuthGuard]},
+  {path: 'user/:uid/sharedBook/:bid', component: EditorComponent, canActivate: [AuthGuard]},
+  {path: 'newSharedBook', component: SharedBookComponent, canActivate: [AuthGuard]}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

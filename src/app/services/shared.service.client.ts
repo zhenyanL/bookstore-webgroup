@@ -3,7 +3,7 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class SharedService {
-  user: {};
+  user: any;
   book: {};
   followingList: any[];
   followedList: any[];
