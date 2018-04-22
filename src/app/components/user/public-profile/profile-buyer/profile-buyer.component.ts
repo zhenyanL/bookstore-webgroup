@@ -21,6 +21,9 @@ export class ProfileBuyerComponent implements OnInit {
     this.myId = this.sharedService.user['_id'];
     this.activatedRoute.params.subscribe(params => {
       this.userId = params['uid'];
+      if (this.userId === this.myId) {
+        this.hasFollowed = true;
+      }
       return this.userService.findUserById(this.userId).subscribe(
         (user) => {
           this.user = user;

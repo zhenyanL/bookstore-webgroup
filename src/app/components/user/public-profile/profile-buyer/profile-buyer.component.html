@@ -1,36 +1,31 @@
-<div>
-      <div class="form-group">
-        <h3 id="title"><strong>Profile for Buyer: {{user.username}}</strong></h3>
+<div class="product-page">
+  <div class="product-page-container">
+    <ol class="product-breadcrumbs">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item"> / <a routerLink="/">Profiles</a></li>
+      <li class="breadcrumb-item"> / {{user?.username}}</li>
+    </ol>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="product-details-image" [ngStyle]="{'background-image': 'url(https://www.itutor-et.com/images/account.png)'}"></div>
       </div>
-  <form>
+      <div class="col-md-6">
+        <div class="product-details-row">
+          <div class="product-brand">{{user?.role}}</div>
+          <h1 class="product-title">{{user?.username}}</h1>
+          <div class="product-brand">First Name: {{user?.firstName}}</div>
+          <div class="product-brand">Last Name: {{user?.lastName}}</div>
+          <div class="product-brand">Email: {{user?.email}}</div>
+          <div style="cursor:pointer;" class="product-price" routerLink="/profile/{{user?._id}}/buyer"><u>Books Bought: {{user?.books.length}}</u></div>
+          <div style="cursor:pointer;" class="product-price" routerLink="/profile/{{user?._id}}/following"><u>Following: {{user?.follow.length}}</u></div>
+          <div style="cursor:pointer;" class="product-price" routerLink="/profile/{{user?._id}}/followedby"><u>Followers: {{user?.followedBy.length}}</u></div>
 
-    <div class="form-group">
-      <p id="firstName">First Name:  {{user.firstName}}</p>
+        </div>
+        <div class="product-details-button">
+          <div *ngIf="!hasFollowed" class="product-cart-button button button-primary button-large" (click)="follow()">Click to Follow</div>
+          <div *ngIf="hasFollowed" class="product-description"><strong>You have followed this user</strong></div>
+        </div>
+      </div>
     </div>
-
-    <div class="form-group">
-      <p id="lastName">Last Name:  {{user.lastName}}</p>
-    </div>
-
-    <div class="form-group">
-      <p id="email">Email:  {{user.email}}</p>
-    </div>
-
-    <div class="form-group">
-      <a routerLink="/profile/{{user._id}}/buyer">Books he/she Bought:  {{user.books.length}}</a>
-    </div>
-
-
-    <div class="form-group">
-      <a routerLink="/profile/{{user._id}}/following">Following:  {{user.follow.length}}</a>
-    </div>
-
-
-    <div class="form-group">
-      <a routerLink="/profile/{{user._id}}/followedby">Followers  {{user.followedBy.length}}</a>
-      <h4 *ngIf="hasFollowed">You have followed</h4>
-      <button *ngIf="!hasFollowed" (click)="follow()">Follow</button>
-    </div>
-
-  </form>
+  </div>
 </div>

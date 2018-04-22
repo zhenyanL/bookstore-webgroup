@@ -33,7 +33,7 @@
           <div class="product-brand"><strong>Comments (refresh page if database hasn't returned updated data)</strong></div>
           <ul class="list-group cl-list-group-borderless">
             <li class="list-group-item cl-list-item-borderless" *ngFor="let comment of book?.comments">
-              <div class="product-brand"><strong>{{comment?.username}}:</strong> &nbsp; {{comment?.rating}} out of 5</div>
+              <div class="product-brand" style="cursor:pointer;" [routerLink]="['/profile', comment._author]"><u><strong>{{comment?.username}}:</strong></u> &nbsp; {{comment?.rating}} out of 5</div>
               <div class="product-brand"><strong>{{comment?.title}}:</strong> &nbsp; {{comment?.description}}</div>
               <a style="cursor:pointer;" *ngIf="comment?._author === userId" [routerLink]="['/book', book?._id, 'comment', comment?._id]">Edit</a>
             </li>

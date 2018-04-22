@@ -1,3 +1,31 @@
-<p>
-  profile-writer works!
-</p>
+<div class="product-page">
+  <div class="product-page-container">
+    <ol class="product-breadcrumbs">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item"> / <a routerLink="/">Profiles</a></li>
+      <li class="breadcrumb-item"> / {{user?.username}}</li>
+    </ol>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="product-details-image"  [ngStyle]="{'background-image': 'url(https://www.itutor-et.com/images/account.png)'}"></div>
+      </div>
+      <div class="col-md-6">
+        <div class="product-details-row">
+          <div class="product-brand">{{user?.role}}</div>
+          <h1 class="product-title">{{user?.username}}</h1>
+          <div class="product-brand">First Name: {{user?.firstName}}</div>
+          <div class="product-brand">Last Name: {{user?.lastName}}</div>
+          <div class="product-brand">Email: {{user?.email}}</div>
+          <div style="cursor:pointer;" class="product-price" routerLink="/profile/{{user?._id}}/following"><u>Following: {{user?.follow.length}}</u></div>
+          <div style="cursor:pointer;" class="product-price" routerLink="/profile/{{user?._id}}/followedby"><u>Followers: {{user?.followedBy.length}}</u></div>
+
+
+        </div>
+        <div class="product-details-button">
+          <div *ngIf="!hasFollowed" class="product-cart-button button button-primary button-large" (click)="follow()">Click to Follow</div>
+          <div *ngIf="hasFollowed" class="product-description"><strong>You have followed this user</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
