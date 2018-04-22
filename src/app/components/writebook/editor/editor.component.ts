@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {SharedBookService} from '../../services/shared-book.service';
-import {CollaborationService} from '../../services/collaboration.service';
+import {SharedBookService} from '../../../services/shared-book.service';
+import {CollaborationService} from '../../../services/collaboration.service';
 
 declare var ace: any;
 

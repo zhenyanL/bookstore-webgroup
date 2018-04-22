@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
-import {SharedBookService} from '../../services/shared-book.service';
+import {SharedBookService} from '../../../services/shared-book.service';
 
 @Component({
   selector: 'app-shared-book',
@@ -30,7 +30,7 @@ export class SharedBookComponent implements OnInit {
       // const name = this.newPageForm.value.bookName;
       this.sharedBookService.createBook({name: name, content: ''}).subscribe(
         (page: any) => {
-          this.router.navigate(['']);
+          this.router.navigate(['sharedBookList']);
         }
       );
     }
