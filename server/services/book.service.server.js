@@ -4,8 +4,11 @@ module.exports = function(app){
   var upload = multer({ dest: __dirname+'/../../dist/uploads' });
 
   app.get("/api/user/:userId/book", findAllBooksForUser);
+  app.get("/api/user/:userId/book/seller", findAllBooksForSeller);
+  app.get("/api/user/:userId/book/buyer", findAllBooksForBuyer);
   app.get("/api/book/:bookId", findBookById);
   app.get("/api/books", findAllBooks);
+
 
   // for seller
   app.post("/api/user/:userId/book", createBook);
@@ -41,6 +44,26 @@ module.exports = function(app){
 
   function findAllBooks(req, res) {
     bookModel.findAllBooks()
+      .then(function(response){
+        res.status(200).send(response);
+      }, function(err) {
+        res.send(500);
+      });
+  }
+
+  function findAllBooksForSeller(req, res) {
+    var userId = req.params['userId'];
+    bookModel.findAllBooksForSeller(userId)
+      .then(function(response){
+        res.status(200).send(response);
+      }, function(err) {
+        res.send(500);
+      });
+  }
+
+  function findAllBooksForBuyer(req, res) {
+    var userId = req.params['userId'];
+    bookModel.findAllBooksForBuyer(userId)
       .then(function(response){
         res.status(200).send(response);
       }, function(err) {

@@ -35,13 +35,14 @@ import { CartContentComponent } from './components/cart-content/cart-content.com
 import { CommentEditComponent } from './components/comment/comment-edit/comment-edit.component';
 import { FollowingListComponent } from './components/user/following-list/following-list.component';
 import { FollowedbyListComponent } from './components/user/followedby-list/followedby-list.component';
-import { BookListComponent } from './components/book/book-list/book-list.component';
+import { BookListSellerComponent } from './components/book/book-list-seller/book-list-seller.component';
 import { BuyerListComponent } from './components/user/buyer-list/buyer-list.component';
 import { SharedBookComponent } from './components/writebook/new-shared-book/shared-book.component';
 import {SharedBookService} from './services/shared-book.service';
 import { EditorComponent } from './components/writebook/editor/editor.component';
 import {CollaborationService} from './services/collaboration.service';
 import { SharedBookListComponent } from './components/writebook/shared-book-list/shared-book-list.component';
+import { BookListBuyerComponent } from './components/book/book-list-buyer/book-list-buyer.component';
 
 @NgModule({
   declarations: [
@@ -68,11 +69,12 @@ import { SharedBookListComponent } from './components/writebook/shared-book-list
     CommentNewComponent,
     CommentEditComponent,
     CartContentComponent,
-    BookListComponent,
+    BookListSellerComponent,
     BuyerListComponent,
     SharedBookComponent,
     EditorComponent,
     SharedBookListComponent,
+    BookListBuyerComponent,
   ],
   imports: [
     BrowserModule,

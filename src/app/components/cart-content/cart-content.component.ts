@@ -43,8 +43,11 @@ export class CartContentComponent implements OnInit {
     for (let book of this.books) {
       this.bookService.buyOneBook(this.userId, book._id)
         .subscribe();
+      this.userServie.buyOneBook(this.userId, book)
+        .subscribe(
+          () => this.cartService.clearCart()
+        );
     }
-    this.cartService.clearCart();
     alert('Thanks for your order');
   }
 }

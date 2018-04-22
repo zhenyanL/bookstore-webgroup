@@ -11,6 +11,7 @@ UserModel.updateUser = updateUser;
 UserModel.deleteUser = deleteUser;
 UserModel.findAllUsers = findAllUsers;
 UserModel.followUser = followUser;
+UserModel.buyOneBook = buyOneBook;
 
 module.exports = UserModel;
 
@@ -36,6 +37,14 @@ function findUserByCredentials(username, password){
 
 function updateUser(userId, user){
   return UserModel.update({_id: userId}, user);
+}
+
+function buyOneBook(userId, book) {
+  return UserModel.findOne({_id: userId})
+    .then(function(user){
+          user.books.push(book);
+          return user.save();
+        });
 }
 
 function deleteUser(userId) {

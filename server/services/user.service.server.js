@@ -34,6 +34,7 @@ module.exports = function (app) {
   app.delete('/api/user/:userId', deleteUser);
 
   app.put('/api/:myId/user/:userId/', followUser);
+  app.put('/api/user/:userId/book1', buyOneBook);
 
   function localStrategy(username, password, done) {
     userModel.findUserByUsername(username).then(
@@ -50,6 +51,7 @@ module.exports = function (app) {
         }
       });
   }
+
 
   function serializeUser(user, done) {
     done(null, user);
@@ -165,6 +167,16 @@ module.exports = function (app) {
         res.send(status);
       })
   }
+
+  function buyOneBook(req, res) {
+    var userId = req.params['userId'];
+    var book = req.body;
+    return userModel.buyOneBook(userId, book)
+      .then(function(response){
+        res.send(response);
+      })
+  }
+
 
   function deleteUser(req, res) {
     var userId = req.params["userId"];

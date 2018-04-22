@@ -47,14 +47,14 @@
       </div>
     </div>
     <div class="cart-buttons">
-      <div class="continue-shopping"><a [routerLink]="['/']">Continue Shopping</a></div>
-      <div class="checkout-button button button-primary button-large" (click)="checkOut()" *ngIf="user.role === 'BUYER'">Checkout ({{total}})</div>
-      <p *ngIf="user.role !== 'BUYER'"><strong>Only Buyers Can Purchase Books</strong></p>
+      <div class="continue-shopping"><a [routerLink]="['/']"><u>Continue Shopping</u></a></div>
+      <div style="margin-bottom: 200px" class="checkout-button button button-primary button-large" (click)="checkOut()" *ngIf="user.role === 'BUYER'">Checkout ({{total}})</div>
+      <p *ngIf="user?.role !== 'BUYER'"><strong>Only Buyers Can Purchase Books</strong></p>
       <div>    </div>
     </div>
   </div>
   <div class="cart-page-content" *ngIf="books.length == 0">
     <h4>Your cart is empty.</h4>
-    <a routerLink="/">Go shopping</a>
+    <a routerLink="/"><u>Go shopping</u></a>
   </div>
 </div>

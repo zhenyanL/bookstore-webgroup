@@ -1,93 +1,3 @@
-<!--<div class="container">-->
-  <!--<div class="col-xs-4 hidden-xs">-->
-    <!--<img class="img-responsive" [src]="book?.imageUrl">-->
-  <!--</div>-->
-
-  <!--<div class="col-xs-8">-->
-    <!--<form >-->
-      <!--<div class="form-group">-->
-        <!--<label for="name">Book Name</label>-->
-        <!--<p id="name">{{book?.name}}</p>-->
-      <!--</div>-->
-
-      <!--<div class="form-group">-->
-        <!--<label for="seller">Seller</label>-->
-        <!--<p id="seller">{{seller?.username}}</p>-->
-      <!--</div>-->
-
-      <!--<div class="form-group">-->
-        <!--<label for="author">Author</label>-->
-        <!--<p id="author">{{book?.author}}</p>-->
-      <!--</div>-->
-
-      <!--<div class="form-group">-->
-        <!--<label >Number Sold</label>-->
-        <!--<a [routerLink]="['/book', book._id, 'user']">{{book?._buyer.length}}</a>-->
-      <!--</div>-->
-
-
-      <!--<div class="form-group">-->
-        <!--<label >Rating</label>-->
-        <!--<p *ngIf="book?.comments.length !== 0">{{book?.rating}} out of 5</p>-->
-        <!--<p *ngIf="book?.comments.length === 0">Be the first one to rate</p>-->
-        <!--<a [routerLink]="['/book', book?._id, 'comment/new']">Write a review</a>-->
-      <!--</div>-->
-
-
-      <!--<div class="form-group">-->
-        <!--<label >Number of Reviews</label>-->
-        <!--<p >{{book?.comments.length}}</p>-->
-      <!--</div>-->
-
-      <!--<div class="form-group">-->
-        <!--<label for="publisher">Publisher</label>-->
-        <!--<p id="publisher">{{book?.publisher}}</p>-->
-      <!--</div>-->
-
-
-      <!--<div class="form-group">-->
-        <!--<label for="year">Publish Year</label>-->
-        <!--<p id="year">{{book?.year}}</p>-->
-      <!--</div>-->
-
-
-      <!--<div class="form-group">-->
-        <!--<label for="price">Price ($)</label>-->
-        <!--<p id="price">{{book?.price}}</p>-->
-      <!--</div>-->
-
-
-      <!--<div class="form-group">-->
-        <!--<label for="description">Description</label>-->
-        <!--<p id="description">{{book?.description}}</p>-->
-      <!--</div>-->
-
-      <!--<button class="btn btn-success btn-block"-->
-              <!--(click)="onCart()">Add to Cart</button>-->
-
-      <!--<button class="btn btn-primary btn-block"-->
-              <!--[routerLink]="['/cart']">Go to Cart</button>-->
-
-      <!--<button class="btn btn-primary btn-block"-->
-              <!--*ngIf="book?._seller === userId"-->
-              <!--[routerLink]="['/book', book?._id, 'edit']">Edit Book</button>-->
-
-      <!--<div *ngIf="book?.comments.length !== 0">-->
-        <!--<label>Comments</label>-->
-        <!--<ul class="list-group cl-list-group-borderless">-->
-          <!--<li class="list-group-item cl-list-item-borderless" *ngFor="let comment of book?.comments">-->
-            <!--<p><strong>{{comment?.username}}:</strong> {{comment?.title}}, <strong>{{comment?.rating}}/5</strong></p>-->
-            <!--<p>{{comment?.description}}</p>-->
-            <!--<button [routerLink]="['/book', book?._id, 'comment', comment?._id]">Edit</button>-->
-          <!--</li>-->
-        <!--</ul>-->
-      <!--</div>-->
-
-    <!--</form>-->
-  <!--</div>-->
-<!--</div>-->
-
-
 <div class="product-page">
   <div class="product-page-container">
     <ol class="product-breadcrumbs">
@@ -103,11 +13,11 @@
         <div class="product-details-row">
           <div class="product-brand">{{book?.author}}</div>
           <h1 class="product-title">{{book?.name}}</h1>
-          <div class="product-brand" [routerLink]="['profile', seller?._id]"><u>Sold by: {{seller?.username}}</u></div>
-          <div class="product-brand" [routerLink]="['/book', book?._id, 'user']"><u>{{book?._buyer.length}} Purchases</u></div>
+          <div style="cursor:pointer;" class="product-brand" [routerLink]="['/profile', seller?._id]"><u>Sold by: {{seller?.username}}</u></div>
+          <div style="cursor:pointer;" class="product-brand" [routerLink]="['/book', book?._id, 'user']"><u>{{book?._buyer.length}} Purchases</u></div>
           <div class="product-brand" *ngIf="book?.comments.length !== 0">{{book?.comments.length}} Reviews ({{book?.rating.toFixed(2)}}/5)</div>
           <div class="product-brand" *ngIf="book?.comments.length === 0">Be the first one to rate</div>
-          <div class="product-brand" [routerLink]="['/book', book?._id, 'comment', 'new']"><u>Write a review</u></div>
+          <div style="cursor:pointer;" class="product-brand" [routerLink]="['/book', book?._id, 'comment', 'new']"><u>Write a review</u></div>
           <div class="product-price">$ {{book?.price}}</div>
           <div class="product-brand">Published by: {{book?.publisher}} in {{book?.year}}</div>
           <div class="product-description">{{book?.description}}</div>
@@ -115,8 +25,8 @@
         </div>
         <div class="product-details-button">
           <div class="product-cart-button button button-primary button-large" (click)="onCart()">Add to cart</div>
-          <div class="product-cart-button button button-primary button-large" [routerLink]="['/cart']">Go to cart</div>
-          <div class="product-cart-button button button-primary button-large" *ngIf="book?._seller === userId"
+          <div style="cursor:pointer;" class="product-cart-button button button-primary button-large" [routerLink]="['/cart']">Go to cart</div>
+          <div style="cursor:pointer;" class="product-cart-button button button-primary button-large" *ngIf="book?._seller === userId"
                [routerLink]="['/book', book?._id, 'edit']">Edit Book</div>
         </div>
         <div class="product-details-row" style="text-align: left" *ngIf="book?.comments.length !== 0">
@@ -125,7 +35,7 @@
             <li class="list-group-item cl-list-item-borderless" *ngFor="let comment of book?.comments">
               <div class="product-brand"><strong>{{comment?.username}}:</strong> &nbsp; {{comment?.rating}} out of 5</div>
               <div class="product-brand"><strong>{{comment?.title}}:</strong> &nbsp; {{comment?.description}}</div>
-              <a *ngIf="comment?._author === userId" [routerLink]="['/book', book?._id, 'comment', comment?._id]">Edit</a>
+              <a style="cursor:pointer;" *ngIf="comment?._author === userId" [routerLink]="['/book', book?._id, 'comment', comment?._id]">Edit</a>
             </li>
           </ul>
         </div>

@@ -1,0 +1,36 @@
+<div class="cart-page-container" style="margin-bottom: 200px">
+  <h3>{{books?.length}} Books Found</h3>
+  <div class="cart-page-content" *ngIf="books.length > 0">
+    <div class="cart-item-header cart-item-row">
+      <div class="cart-item-cell cart-item-product"><span>Book</span></div>
+      <div class="cart-item-cell cart-item-quantity"><span>Publisher</span></div>
+      <div class="cart-item-cell cart-item-total"><span>Year</span></div>
+      <div class="cart-item-cell cart-item-action"><span>Price</span></div>
+    </div>
+    <div class="cart-item-row" *ngFor="let book of books;let i = index">
+      <div class="cart-item-cell cart-item-product">
+        <div class="cart-item-thumbnail" [ngStyle]="{'background-image': 'url(' + book?.imageUrl + ')'}">
+        </div>
+        <div class="cart-item-info">
+          <div class="cart-item-brand">{{book?.author}}</div>
+          <div class="cart-item-title">{{book?.name}}</div>
+        </div>
+      </div>
+      <div class="cart-item-cell cart-item-quantity">
+        <div>
+          {{book?.publisher}}
+        </div>
+      </div>
+      <div class="cart-item-cell cart-item-total">
+        <div class="item-price">
+          {{book?.year}}
+        </div>
+      </div>
+      <div class="cart-item-cell cart-item-total">
+        <div class="item-price">
+          $ {{book?.price}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -97,4 +97,11 @@ export class UserService {
       return response.json();
     });
   }
+
+  buyOneBook(userId, book) {
+    const url = this.baseUrl + '/api/user/' + userId + '/book1/';
+    return this.http.put(url, book).map((response: Response) => {
+      return response.json();
+    });
+  }
 }

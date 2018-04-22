@@ -6,6 +6,8 @@ var UserModel = require("../user/user.model.server");
 
 BookModel.createBookForSeller=createBookForSeller;
 BookModel.findAllBooksForUser=findAllBooksForUser;
+BookModel.findAllBooksForSeller=findAllBooksForSeller;
+BookModel.findAllBooksForBuyer=findAllBooksForBuyer;
 BookModel.findAllBooks=findAllBooks;
 BookModel.findBookById=findBookById;
 BookModel.updateBook=updateBook;
@@ -31,9 +33,9 @@ function createBookForSeller(userId, book){
 
 function findAllBooksForUser(userId) {
   UserModel.findUserById(userId).then(function(user){
-    if (user.role === 'SELLER') {
+    if (user.role == 'SELLER') {
       return BookModel.find({_seller: userId});
-    } else if (user.role === 'BUYER') {
+    } else if (user.role == 'BUYER') {
       return BookModel.find({_buyer: userId});
     }
   });
@@ -41,6 +43,14 @@ function findAllBooksForUser(userId) {
 
 function findAllBooks() {
   return BookModel.find({});
+}
+
+function findAllBooksForSeller(userId) {
+  return BookModel.find({_seller: userId});
+}
+
+function findAllBooksForBuyer(userId) {
+  return BookModel.find({_buyer: userId});
 }
 
 function findBookById(bookId) {
@@ -72,17 +82,26 @@ function addBookInShoppingList(bookId, userId) {
 
 
 function buyOneBook(bookId, userId) {
-  return UserModel.findUserById(userId)
-    .then(function(user){
-      BookModel.findBookById(bookId)
-        .then(function(book) {
-          book.number--;
-          book._buyer.push(user._id);
-          user.books.push(book);
-          book.save();
-        });
-      return user.save();
-    });
+  // return UserModel.findUserById(userId)
+  //   .then(function(user){
+  //     BookModel.findBookById(bookId)
+  //       .then(function(book) {
+  //         book.number--;
+  //         book._buyer.push(user._id);
+  //         user.books.push(book);
+  //         book.save();
+  //         return user.save();
+  //       });
+  //
+  //   });
+
+
+  return BookModel.findBookById(bookId)
+      .then(function(book) {
+        book.number--;
+        book._buyer.push(userId);
+        return book.save();
+      });
 }
 
 function buyBooksInShoppingList(userId) {

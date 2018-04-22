@@ -23,6 +23,20 @@ export class BookService {
     });
   }
 
+  findAllBooksForSeller(userId) {
+    const url = this.baseUrl + '/api/user/' + userId + '/book/seller';
+    return this.http.get(url).map((response: Response) => {
+      return response.json();
+    });
+  }
+
+  findAllBooksForBuyer(userId) {
+    const url = this.baseUrl + '/api/user/' + userId + '/book/buyer';
+    return this.http.get(url).map((response: Response) => {
+      return response.json();
+    });
+  }
+
   findAllBooks() {
     const url = this.baseUrl + '/api/books';
     return this.http.get(url).map((response: Response) => {

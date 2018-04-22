@@ -15,12 +15,13 @@ import {BookEditComponent} from './components/book/book-edit/book-edit.component
 import {CommentNewComponent} from './components/comment/comment-new/comment-new.component';
 import {CartContentComponent} from './components/cart-content/cart-content.component';
 import {CommentEditComponent} from './components/comment/comment-edit/comment-edit.component';
-import {BookListComponent} from './components/book/book-list/book-list.component';
+import {BookListSellerComponent} from './components/book/book-list-seller/book-list-seller.component';
 import {BuyerListComponent} from './components/user/buyer-list/buyer-list.component';
 import {EditorComponent} from './components/writebook/editor/editor.component';
 import {SharedBookComponent} from './components/writebook/new-shared-book/shared-book.component';
 import {SharedBookService} from './services/shared-book.service';
 import {SharedBookListComponent} from './components/writebook/shared-book-list/shared-book-list.component';
+import {BookListBuyerComponent} from './components/book/book-list-buyer/book-list-buyer.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
   {path: 'cart', component: CartContentComponent, canActivate: [AuthGuard]},
   {path: 'profile', component: PrivateProfileComponent, canActivate: [AuthGuard]},
   {path: 'profile/:uid', component: PublicProfileComponent, canActivate: [AuthGuard]},
-  {path: 'profile/:uid/book', component: BookListComponent, canActivate: [AuthGuard]},
+  {path: 'profile/:uid/seller', component: BookListSellerComponent, canActivate: [AuthGuard]},
+  {path: 'profile/:uid/buyer', component: BookListBuyerComponent, canActivate: [AuthGuard]},
   {path: 'profile/:uid/edit', component: PrivateProfileComponent, canActivate: [AuthGuard]},
   {path: 'profile/:uid/following', component: FollowingListComponent, canActivate: [AuthGuard]},
   {path: 'profile/:uid/followedby', component: FollowedbyListComponent, canActivate: [AuthGuard]},
