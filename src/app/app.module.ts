@@ -37,10 +37,11 @@ import { FollowingListComponent } from './components/user/following-list/followi
 import { FollowedbyListComponent } from './components/user/followedby-list/followedby-list.component';
 import { BookListComponent } from './components/book/book-list/book-list.component';
 import { BuyerListComponent } from './components/user/buyer-list/buyer-list.component';
-import { SharedBookComponent } from './components/new-shared-book/shared-book.component';
+import { SharedBookComponent } from './components/writebook/new-shared-book/shared-book.component';
 import {SharedBookService} from './services/shared-book.service';
-import { EditorComponent } from './components/editor/editor.component';
+import { EditorComponent } from './components/writebook/editor/editor.component';
 import {CollaborationService} from './services/collaboration.service';
+import { SharedBookListComponent } from './components/writebook/shared-book-list/shared-book-list.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import {CollaborationService} from './services/collaboration.service';
     BuyerListComponent,
     SharedBookComponent,
     EditorComponent,
+    SharedBookListComponent,
   ],
   imports: [
     BrowserModule,

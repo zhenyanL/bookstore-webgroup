@@ -13,11 +13,9 @@ import {SharedBookService} from '../../services/shared-book.service';
 })
 export class HomeComponent implements OnInit {
   books: any[];
-  sharedBooks: any[];
 
   constructor(private activatedRoute: ActivatedRoute, private sharedService: SharedService, private userService: UserService
-    , private bookService: BookService, private router: Router, private cartService: CartService,
-              private sharedBookService: SharedBookService) { }
+    , private bookService: BookService, private router: Router, private cartService: CartService) { }
 
   ngOnInit() {
     this.bookService.findAllBooks().subscribe(
@@ -27,32 +25,11 @@ export class HomeComponent implements OnInit {
       }
     );
 
-    this.sharedBookService.findAllSharedBook().subscribe(
-      (data: any[]) => {
-        this.sharedBooks = data;
-      }
-    );
   }
 
   addToCart(book) {
     this.cartService.addToCart(book);
   }
 
-  clickSharedBook(sharedBookId){
-
-      const user = this.sharedService.user;
-      if (user === undefined) {
-        alert('please login first');
-      } else if(user.role !== 'WRITER'){
-        alert('you are not a writer');
-      } else{
-        this.router.navigate([ 'user', user._id, 'sharedBook', sharedBookId ]);
-      }
-      // if (user.role !== 'WRITER' ) {
-      //   alert('you are not a writer');
-      // } else{
-      //   this.router.navigate([ 'user', user._id, 'sharedBook', sharedBookId ]);
-      // }
-  }
 
 }
