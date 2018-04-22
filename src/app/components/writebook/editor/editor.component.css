@@ -11,21 +11,44 @@
 
 }
 
-.pad-div{
-  padding-top: 100px;
-  padding-bottom: 100px;
-}
-
-/*.layout-container {*/
-  /*max-width: 1140px;*/
-  /*padding-right: 30px;*/
-  /*padding-left: 30px;*/
-  /*margin-right: auto;*/
-  /*margin-left: auto;*/
+/*.pad-div{*/
+  /*padding-top: 100px;*/
+  /*padding-bottom: 100px;*/
 /*}*/
 
-@media screen and (max-width: 767px) {
-  .header-block {
-    width: 100%;
-  }
-}
+/*!*.layout-container {*!*/
+  /*!*max-width: 1140px;*!*/
+  /*!*padding-right: 30px;*!*/
+  /*!*padding-left: 30px;*!*/
+  /*!*margin-right: auto;*!*/
+  /*!*margin-left: auto;*!*/
+/*!*}*!*/
+
+/*@media screen and (max-width: 767px) {*/
+  /*.header-block {*/
+    /*width: 100%;*/
+  /*}*/
+/*}*/
+
+.doc-black,.doc-hover-black:hover{color:#fff!important;background-color:#000!important}
+
+.doc-container:after,.doc-container:before,.doc-panel:after,.doc-panel:before,.doc-row:after,.doc-row:before,.doc-row-padding:after,.doc-row-padding:before,
+.doc-cell-row:before,.doc-cell-row:after,.doc-clear:after,.doc-clear:before,.doc-bar:before,.doc-bar:after{content:"";display:table;clear:both}
+.doc-container,.doc-panel{padding:0.01em 16px}.doc-panel{margin-top:16px;margin-bottom:16px}
+
+.doc-content{max-width:980px;margin:auto}.doc-rest{overflow:hidden}
+
+.doc-padding-64{padding-top:64px!important;padding-bottom:64px!important}
+
+.doc-wide{letter-spacing:4px}
+
+.doc-center .doc-bar{display:inline-block;width:auto}
+.doc-bar-block.doc-center .doc-bar-item{text-align:center}.doc-block{display:block;width:100%}
+.doc-center{text-align:center!important}
+
+.doc-opacity,.doc-hover-opacity:hover{opacity:0.60}.doc-opacity-off,.doc-hover-opacity-off:hover{opacity:1}
+
+.doc-row-padding,.doc-row-padding>.doc-half,.doc-row-padding>.doc-third,.doc-row-padding>.doc-twothird,.doc-row-padding>.doc-threequarter,.doc-row-padding>.doc-quarter,.doc-row-padding>.doc-col{padding:0 8px}
+
+.doc-padding-32{padding-top:32px!important;padding-bottom:32px!important}.doc-padding-48{padding-top:48px!important;padding-bottom:48px!important}
+/*----------------------------------------------------*/

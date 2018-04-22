@@ -9,6 +9,7 @@ import {SharedService} from '../../../services/shared.service.client';
   styleUrls: ['./following-list.component.css']
 })
 export class FollowingListComponent implements OnInit {
+  user: any;
   userId: string;
   follow = [];
 
@@ -18,6 +19,7 @@ export class FollowingListComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.userId = params['uid'];
       this.follow = this.sharedService.followingList;
+      this.user = this.sharedService.user;
 
     });
   }

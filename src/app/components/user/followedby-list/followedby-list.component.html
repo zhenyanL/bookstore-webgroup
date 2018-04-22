@@ -1,12 +1,39 @@
 
-<div class="container-fluid">
-  <a class="navbar-brand text-bold" routerLink="./">
-    Followed By List
-  </a>
-  <ul class="list-group list-group-borderless">
-    <li class="list-group-item list-item-borderless" *ngFor = "let user of followedBy">
-      <a routerLink="/profile/{{user._id}}">{{user.username}}</a>
+<!--<div class="container-fluid">-->
+  <!--<a class="navbar-brand text-bold" routerLink="./">-->
+    <!--Followed By List-->
+  <!--</a>-->
+  <!--<ul class="list-group list-group-borderless">-->
+    <!--<li class="list-group-item list-item-borderless" *ngFor = "let user of followedBy">-->
+      <!--<a routerLink="/profile/{{user._id}}">{{user.username}}</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</div>-->
+
+
+<div class="container doc-card  doc-margin-top ">
+  <!--<img src="/docimages/avatar_g.jpg" style="width:100%">-->
+  <div class=" doc-white">
+    <h4><b>My Name</b></h4>
+    <p>My name is {{user.username}}, I am a {{user.role}}</p>
+  </div>
+</div><hr>
+
+<!-- Posts -->
+
+<div class="container doc-card ">
+  <!--<div class="  container">-->
+  <h4>My Followed List</h4>
+  <!--</div>-->
+  <ul class="doc-ul doc-hoverable doc-white">
+    <li class="doc-padding-16" *ngFor = "let user of followedBy">
+      <!--<img src="/docimages/workshop.jpg" alt="Image" class="doc-left doc-margin-right" style="width:50px">-->
+      <a routerLink="/profile/{{user._id}}"> <span class="doc-large">{{user.username}}</span><br>
+        <span>{{user.username}} is a {{user.role}}</span></a>
+
     </li>
+
+
+
   </ul>
 </div>
-

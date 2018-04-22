@@ -9,6 +9,7 @@ import {BookService} from '../../../services/book.service.client';
   styleUrls: ['./buyer-list.component.css']
 })
 export class BuyerListComponent implements OnInit {
+  book: any;
   bookId: string;
   userIds: any[];
   users: any[];
@@ -22,6 +23,7 @@ export class BuyerListComponent implements OnInit {
       this.bookService.findBookById(this.bookId)
         .subscribe(
           (book) => {
+            this.book = book;
             this.userIds = book._buyer;
             for (const userId of this.userIds) {
               this.userService.findUserById(userId)

@@ -1,0 +1,15 @@
+.doc-display-container{position:relative}
+.doc-display-container:hover .doc-display-hover{display:block}
+.doc-display-container:hover span.doc-display-hover{display:inline-block}
+.doc-center .doc-bar{display:inline-block;width:auto}
+.doc-bar-block.doc-center .doc-bar-item{text-align:center}
+.doc-center{text-align:center!important}
+.doc-display-topmiddle{position:absolute;left:50%;top:0;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%)}
+.doc-text-white,.doc-hover-text-white:hover{color:#fff!important}
+.doc-padding-32{padding-top:32px!important;padding-bottom:32px!important}
+@media (max-width:600px) {
+  .doc-hide-small{display:none!important}
+}
+.doc-text-red,.doc-hover-text-red:hover{color:#f44336!important}
+
+

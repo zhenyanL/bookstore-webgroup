@@ -1,20 +1,33 @@
-<div style="display: block " class="container-fluid scrollable container">
-  <div class="form-group">
-    <!--<input type="text" placeholder="file name">-->
-    <h1>Document name: {{sharedBook.name}}</h1>
-    <p>(Notice: you can open multiple windows to simulate multiple clients)</p>
-    <!--<button class="btn-primary">Save</button>-->
-  </div>
-
-  <!--<div>-->
-  <!--<p>Current Users</p>-->
+<!--<div style="display: block " class="container-fluid scrollable container">-->
+  <!--<div class="form-group">-->
+    <!--&lt;!&ndash;<input type="text" placeholder="file name">&ndash;&gt;-->
+    <!--<h1>Document name: {{sharedBook.name}}</h1>-->
+    <!--<p>(Notice: you can open multiple windows to simulate multiple clients)</p>-->
+    <!--&lt;!&ndash;<button class="btn-primary">Save</button>&ndash;&gt;-->
   <!--</div>-->
 
+  <!--&lt;!&ndash;<div>&ndash;&gt;-->
+  <!--&lt;!&ndash;<p>Current Users</p>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
 
-  <!--<div class="container">-->
-  <!--<h1>???????????</h1>-->
+
+  <!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+  <!--&lt;!&ndash;<h1>???????????</h1>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+  <!--<div  id="editor">-->
   <!--</div>-->
+<!--</div>-->
 
-  <div  id="editor">
+
+<div class="doc-black"  style="height: 850px">
+  <div class="doc-container doc-content doc-padding-64" style="max-width:1000px">
+    <h2 class="doc-wide doc-center">Document name: {{sharedBook.name}}</h2>
+    <h3 class="doc-opacity doc-center"><i>(Notice: you can open multiple windows to simulate multiple clients)</i></h3><br>
+
+    <div class="doc-row-padding doc-padding-32">
+    <div  id="editor"></div>
+    </div>
+
   </div>
 </div>

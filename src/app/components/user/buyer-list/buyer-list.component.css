@@ -1,0 +1,7 @@
+.doc-card,.doc-card-2{box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)}
+.doc-margin-top{margin-top:16px!important}.doc-margin-bottom{margin-bottom:16px!important}
+.doc-white,.doc-hover-white:hover{color:#000!important;background-color:#fff!important}
+.doc-ul{list-style-type:none;padding:0;margin:0}.doc-ul li{padding:8px 16px;border-bottom:1px solid #ddd}.doc-ul li:last-child{border-bottom:none}
+.doc-hoverable tbody tr:hover,.doc-ul.doc-hoverable li:hover{background-color:#ccc}.doc-centered tr th,.doc-centered tr td{text-align:center}
+.doc-padding-16{padding-top:16px!important;padding-bottom:16px!important}.doc-padding-24{padding-top:24px!important;padding-bottom:24px!important}
+.doc-large{font-size:18px!important}
