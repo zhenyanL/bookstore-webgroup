@@ -1,88 +1,115 @@
-<div class="container">
-  <div class="col-xs-4 hidden-xs">
-    <img class="img-responsive" [src]="book?.imageUrl">
-  </div>
+<!--<div class="container">-->
+  <!--<div class="col-xs-4 hidden-xs">-->
+    <!--<img class="img-responsive" [src]="book?.imageUrl">-->
+  <!--</div>-->
 
-  <div class="col-xs-8">
-    <form >
-      <div class="form-group">
-        <label for="name">Book Name</label>
-        <p id="name">{{book?.name}}</p>
+  <!--<div class="col-xs-8">-->
+    <!--<form >-->
+      <!--<div class="form-group">-->
+        <!--<label for="name">Book Name</label>-->
+        <!--<p id="name">{{book?.name}}</p>-->
+      <!--</div>-->
+
+      <!--<div class="form-group">-->
+        <!--<label for="seller">Seller</label>-->
+        <!--<p id="seller">{{seller?.username}}</p>-->
+      <!--</div>-->
+
+      <!--<div class="form-group">-->
+        <!--<label for="author">Author</label>-->
+        <!--<p id="author">{{book?.author}}</p>-->
+      <!--</div>-->
+
+      <!--<div class="form-group">-->
+        <!--<label >Number Sold</label>-->
+        <!--<a [routerLink]="['/book', book._id, 'user']">{{book?._buyer.length}}</a>-->
+      <!--</div>-->
+
+
+      <!--<div class="form-group">-->
+        <!--<label >Rating</label>-->
+        <!--<p *ngIf="book?.comments.length !== 0">{{book?.rating}} out of 5</p>-->
+        <!--<p *ngIf="book?.comments.length === 0">Be the first one to rate</p>-->
+        <!--<a [routerLink]="['/book', book?._id, 'comment/new']">Write a review</a>-->
+      <!--</div>-->
+
+
+      <!--<div class="form-group">-->
+        <!--<label >Number of Reviews</label>-->
+        <!--<p >{{book?.comments.length}}</p>-->
+      <!--</div>-->
+
+      <!--<div class="form-group">-->
+        <!--<label for="publisher">Publisher</label>-->
+        <!--<p id="publisher">{{book?.publisher}}</p>-->
+      <!--</div>-->
+
+
+      <!--<div class="form-group">-->
+        <!--<label for="year">Publish Year</label>-->
+        <!--<p id="year">{{book?.year}}</p>-->
+      <!--</div>-->
+
+
+      <!--<div class="form-group">-->
+        <!--<label for="price">Price ($)</label>-->
+        <!--<p id="price">{{book?.price}}</p>-->
+      <!--</div>-->
+
+
+      <!--<div class="form-group">-->
+        <!--<label for="description">Description</label>-->
+        <!--<p id="description">{{book?.description}}</p>-->
+      <!--</div>-->
+
+      <!--<button class="btn btn-success btn-block"-->
+              <!--(click)="onCart()">Add to Cart</button>-->
+
+      <!--<button class="btn btn-primary btn-block"-->
+              <!--[routerLink]="['/cart']">Go to Cart</button>-->
+
+      <!--<button class="btn btn-primary btn-block"-->
+              <!--*ngIf="book?._seller === userId"-->
+              <!--[routerLink]="['/book', book?._id, 'edit']">Edit Book</button>-->
+
+      <!--<div *ngIf="book?.comments.length !== 0">-->
+        <!--<label>Comments</label>-->
+        <!--<ul class="list-group cl-list-group-borderless">-->
+          <!--<li class="list-group-item cl-list-item-borderless" *ngFor="let comment of book?.comments">-->
+            <!--<p><strong>{{comment?.username}}:</strong> {{comment?.title}}, <strong>{{comment?.rating}}/5</strong></p>-->
+            <!--<p>{{comment?.description}}</p>-->
+            <!--<button [routerLink]="['/book', book?._id, 'comment', comment?._id]">Edit</button>-->
+          <!--</li>-->
+        <!--</ul>-->
+      <!--</div>-->
+
+    <!--</form>-->
+  <!--</div>-->
+<!--</div>-->
+
+
+<div class="product-page">
+  <div class="product-page-container">
+    <ol class="product-breadcrumbs">
+      <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item"> / <a routerLink="/">Books</a></li>
+      <li class="breadcrumb-item"> / {{book.name}}</li>
+    </ol>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="product-details-image" [ngStyle]="{'background-image': 'url(' + book.imageUrl + ')'}"></div>
       </div>
-
-      <div class="form-group">
-        <label for="seller">Seller</label>
-        <p id="seller">{{seller?.username}}</p>
+      <div class="col-md-6">
+        <div class="product-details-row">
+          <div class="product-brand">{{book.author}}</div>
+          <h1 class="product-title">{{book.name}}</h1>
+          <div class="product-price">$ {{book.price}}</div>
+          <div class="product-description">{{book.description}}</div>
+        </div>
+        <div class="product-details-button">
+          <div class="product-cart-button button button-primary button-large" (click)="onCart()">Add to cart</div>
+        </div>
       </div>
-
-      <div class="form-group">
-        <label for="author">Author</label>
-        <p id="author">{{book?.author}}</p>
-      </div>
-
-      <div class="form-group">
-        <label >Number Sold</label>
-        <a [routerLink]="['/book', book._id, 'user']">{{book?._buyer.length}}</a>
-      </div>
-
-
-      <div class="form-group">
-        <label >Rating</label>
-        <p *ngIf="book?.comments.length !== 0">{{book?.rating}} out of 5</p>
-        <p *ngIf="book?.comments.length === 0">Be the first one to rate</p>
-        <a [routerLink]="['/book', book?._id, 'comment/new']">Write a review</a>
-      </div>
-
-
-      <div class="form-group">
-        <label >Number of Reviews</label>
-        <p >{{book?.comments.length}}</p>
-      </div>
-
-      <div class="form-group">
-        <label for="publisher">Publisher</label>
-        <p id="publisher">{{book?.publisher}}</p>
-      </div>
-
-
-      <div class="form-group">
-        <label for="year">Publish Year</label>
-        <p id="year">{{book?.year}}</p>
-      </div>
-
-
-      <div class="form-group">
-        <label for="price">Price ($)</label>
-        <p id="price">{{book?.price}}</p>
-      </div>
-
-
-      <div class="form-group">
-        <label for="description">Description</label>
-        <p id="description">{{book?.description}}</p>
-      </div>
-
-      <button class="btn btn-success btn-block"
-              (click)="onCart()">Add to Cart</button>
-
-      <button class="btn btn-primary btn-block"
-              [routerLink]="['/cart']">Go to Cart</button>
-
-      <button class="btn btn-primary btn-block"
-              *ngIf="book?._seller === userId"
-              [routerLink]="['/book', book?._id, 'edit']">Edit Book</button>
-
-      <div *ngIf="book?.comments.length !== 0">
-        <label>Comments</label>
-        <ul class="list-group cl-list-group-borderless">
-          <li class="list-group-item cl-list-item-borderless" *ngFor="let comment of book?.comments">
-            <p><strong>{{comment?.username}}:</strong> {{comment?.title}}, <strong>{{comment?.rating}}/5</strong></p>
-            <p>{{comment?.description}}</p>
-            <button [routerLink]="['/book', book?._id, 'comment', comment?._id]">Edit</button>
-          </li>
-        </ul>
-      </div>
-
-    </form>
+    </div>
   </div>
 </div>
