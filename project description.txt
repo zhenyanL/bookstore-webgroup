@@ -1,0 +1,21 @@
+Group member: Yinguang Zhao, Jingyu Shen, Zhenyan Lin
+
+Description: Our project is a small book store. It allows sellers to post books and sell books, allows buyers to buy books and review books, and allows writers to create their own books together. Our web also provides weather service with Weather and Google map API to search for a particular city weather and map.
+
+Problem statement:
+
+Domain objects: We have book/comment objects. Each one can be created, updated, deleted.
+
+book: each book include a comment list.
+
+Human users: We have admin/seller/buyer/writer.
+
+anonymous: can see book details and buyer list, can use weather API.
+
+admin: can see all users list and update/delete each user.
+
+seller: can create/update/delete books, can see other sellers/buyers's public profile and follow them.
+
+buyer: can buy/review on books, can see book details and all comments, can see other sellers/buyers's public profile and follow them.
+
+writer: can edit text with other writers at the same time.

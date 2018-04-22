@@ -37,6 +37,13 @@ export class BookService {
     });
   }
 
+  findBookByName(bookName) {
+    const url = this.baseUrl + '/api/searchbooks/' + bookName;
+    return this.http.get(url).map((response: Response) => {
+      return response.json();
+    });
+  }
+
   updateBook(newBook) {
     const url = this.baseUrl + '/api/book/' + newBook._id;
     return this.http.put(url, newBook).map((response: Response) => {

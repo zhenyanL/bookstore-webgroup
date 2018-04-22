@@ -8,6 +8,7 @@ BookModel.createBookForSeller=createBookForSeller;
 BookModel.findAllBooksForUser=findAllBooksForUser;
 BookModel.findAllBooks=findAllBooks;
 BookModel.findBookById=findBookById;
+BookModel.findBookByName=findBookByName;
 BookModel.updateBook=updateBook;
 BookModel.deleteBook=deleteBook;
 BookModel.addBookInShoppingList=addBookInShoppingList;
@@ -47,6 +48,9 @@ function findBookById(bookId) {
   return BookModel.findById({_id: bookId});
 }
 
+function findBookByName(name) {
+  return BookModel.find({name: name});
+}
 
 function updateBook(bookId, book) {
   return BookModel.update({_id: bookId}, book);

@@ -21,6 +21,7 @@ import {EditorComponent} from './components/writebook/editor/editor.component';
 import {SharedBookComponent} from './components/writebook/new-shared-book/shared-book.component';
 import {SharedBookService} from './services/shared-book.service';
 import {SharedBookListComponent} from './components/writebook/shared-book-list/shared-book-list.component';
+import {BookSearchComponent} from './components/book/book-search/book-search.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
   {path: 'profile/:uid/following', component: FollowingListComponent, canActivate: [AuthGuard]},
   {path: 'profile/:uid/followedby', component: FollowedbyListComponent, canActivate: [AuthGuard]},
   {path: 'user', component: UserListComponent, canActivate: [AuthGuard]},
+  {path: 'book/search', component: BookSearchComponent},
   {path: 'book/new', component: BookNewComponent, canActivate: [AuthGuard]},
   {path: 'book/:bid', component: BookDetailComponent},
   {path: 'book/:bid/user', component: BuyerListComponent},

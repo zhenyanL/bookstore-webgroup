@@ -42,6 +42,7 @@ import {SharedBookService} from './services/shared-book.service';
 import { EditorComponent } from './components/writebook/editor/editor.component';
 import {CollaborationService} from './services/collaboration.service';
 import { SharedBookListComponent } from './components/writebook/shared-book-list/shared-book-list.component';
+import {BookSearchComponent} from './components/book/book-search/book-search.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { SharedBookListComponent } from './components/writebook/shared-book-list
     BookNewComponent,
     SlideshowComponent,
     BookEditComponent,
+    BookSearchComponent,
     GelocationComponent,
     FollowingListComponent,
     FollowedbyListComponent,
@@ -72,7 +74,7 @@ import { SharedBookListComponent } from './components/writebook/shared-book-list
     BuyerListComponent,
     SharedBookComponent,
     EditorComponent,
-    SharedBookListComponent,
+    SharedBookListComponent
   ],
   imports: [
     BrowserModule,
