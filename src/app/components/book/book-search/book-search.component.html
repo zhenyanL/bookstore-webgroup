@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="col-xs-4 hidden-xs">
+    <img class="img-responsive" [src]="imageUrl">
+  </div>
+
+  <div class="col-xs-8">
+    <div class="input-group">
+      <input [(ngModel)]="searchText" type="text" class="form-control">
+      <span class="input-group-btn">
+          <a (click)="searchBook()" class="btn btn-default" type="button">
+              <span class="glyphicon glyphicon-search"></span>
+          </a>
+      </span>
+    </div>
+   </div>
+
+   <div *ngIf="errorFlag"
+        class="alert alert-danger">
+     <span>Cannot find {{searchText}}!</span>
+   </div>
+
+  <div class="product-grid">
+    <div class="col-md-4 col-sm-6" *ngFor="let book of books;let i = index">
+      <div class="image-container">
+        <div class="product-image" [ngStyle]="{'background-image': 'url(' + book.imageUrl + ')'}"></div>
+        <div class="overlay">
+          <div class="button button-primary" [routerLink]="['/book', book._id]">View Details</div>
+          <div class="button button-primary" (click)="addToCart(book)">Add To Cart</div>
+        </div>
+      </div>
+      <div class="product-details">
+        <div class="product-brand">{{book.author}}</div>
+        <div class="product-title">{{book.name}}</div>
+        <div class="product-price">$ {{book.price}}</div>
+      </div>
+    </div>
+  </div>
+</div>
