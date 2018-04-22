@@ -37,6 +37,10 @@ import { FollowingListComponent } from './components/user/following-list/followi
 import { FollowedbyListComponent } from './components/user/followedby-list/followedby-list.component';
 import { BookListComponent } from './components/book/book-list/book-list.component';
 import { BuyerListComponent } from './components/user/buyer-list/buyer-list.component';
+import { SharedBookComponent } from './components/new-shared-book/shared-book.component';
+import {SharedBookService} from './services/shared-book.service';
+import { EditorComponent } from './components/editor/editor.component';
+import {CollaborationService} from './services/collaboration.service';
 
 @NgModule({
   declarations: [
@@ -65,6 +69,8 @@ import { BuyerListComponent } from './components/user/buyer-list/buyer-list.comp
     CartContentComponent,
     BookListComponent,
     BuyerListComponent,
+    SharedBookComponent,
+    EditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +82,7 @@ import { BuyerListComponent } from './components/user/buyer-list/buyer-list.comp
       apiKey: 'AIzaSyAf-g21YJ_o0NjbCZIGBFPlDIx5o68tJ7g'
     })
   ],
-  providers: [SharedService, UserService, BookService, CommentService, AuthGuard, CartService],
+  providers: [SharedService, UserService, BookService, CommentService, AuthGuard, CartService, SharedBookService, CollaborationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

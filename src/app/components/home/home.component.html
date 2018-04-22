@@ -1,4 +1,5 @@
 <app-slideshow></app-slideshow>
+
 <div class="layout-container">
   <div class="product-grid">
 
@@ -18,3 +19,22 @@
     </div>
   </div>
 </div>
+
+
+<div class="container">
+  <div>
+    <a routerLink="newSharedBook" class="form-group" ><span class="glyphicon glyphicon-plus"></span></a>
+  </div>
+  <p>New Feature! Write Book Together(Google Doc) [Writer Only]</p>
+  <ul class="list-group cl-list-group-borderless">
+    <li class="list-group-item" *ngFor="let sharedBook of sharedBooks">
+      <!--<a [routerLink]="sharedBook._id" ><span class="glyphicon glyphicon-cog pull-right"></span></a>-->
+      <!--<a [routerLink]="['/sharedBook',sharedBook._id]">{{sharedBook.name}}</a>-->
+      <a (click)="clickSharedBook(sharedBook._id)">{{sharedBook.name}}</a>
+    </li>
+  </ul>
+</div>
+
+
+
+

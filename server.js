@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var mongoose = require('mongoose');
 // var dbmongo = mongoose.connect('mongodb://localhost:27017/webdev');
 var dbmongo = mongoose.connect('mongodb://zhao:zhao@ds249269.mlab.com:49269/webgroup');
+// var dbmongo = mongoose.connect('mongodb://webgroup:123456@ds133231.mlab.com:33231/webgroup');
 
 const path = require('path');
 const http = require('http');
@@ -42,6 +43,9 @@ app.set('port', port);
 
 // Create HTTP server
 const server = http.createServer(app);
+var io = require('socket.io')();
+var socketService = require('./server/services/socket.service.server.js')(io);
+io.attach(server);
 
 require("./server/app")(app);
 
