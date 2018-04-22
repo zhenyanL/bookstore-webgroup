@@ -13,8 +13,10 @@ export class SharedBookComponent implements OnInit {
   @ViewChild('newPageForm') newPageForm: NgForm;
 
   errFlag: boolean;
-  error = 'wrong!';
-  alert = 'alert!';
+  lengthFlag: boolean;
+  error = 'Wrong!';
+  alert = 'name cannot be empty!';
+  lengthAlert = 'description cannot exceeds 20 words'
 
   constructor(private sharedBookService: SharedBookService, private router: Router) { }
 
@@ -24,11 +26,18 @@ export class SharedBookComponent implements OnInit {
 
   createPage() {
     const name = this.newPageForm.value.bookName;
+    const description = this.newPageForm.value.bookDescription;
     if(name === '') {
       this.errFlag = true;
+    } else if(description.length >= 20){
+      this.lengthFlag = true;
     } else {
       // const name = this.newPageForm.value.bookName;
-      this.sharedBookService.createBook({name: name, content: ''}).subscribe(
+      const description = this.newPageForm.value.bookDescription;
+      const imageURL = this.newPageForm.value.imageURL;
+      console.log(description);
+      console.log(imageURL);
+      this.sharedBookService.createBook({name: name, content: '', description: description, imageURL: imageURL}).subscribe(
         (page: any) => {
           this.router.navigate(['sharedBookList']);
         }

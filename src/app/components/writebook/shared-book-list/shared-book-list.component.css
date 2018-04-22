@@ -1,0 +1,50 @@
+.doc-black,.doc-hover-black:hover{color:#fff!important;background-color:#000!important}
+
+.doc-container,.doc-panel{padding:0.01em 16px}.doc-panel{margin-top:16px;margin-bottom:16px}
+.doc-container:after,.doc-container:before,.doc-panel:after,.doc-panel:before,.doc-row:after,.doc-row:before,.doc-row-padding:after,.doc-row-padding:before,
+.doc-cell-row:before,.doc-cell-row:after,.doc-clear:after,.doc-clear:before,.doc-bar:before,.doc-bar:after{content:"";display:table;clear:both}
+
+.doc-content{max-width:980px;margin:auto}.doc-rest{overflow:hidden}
+
+.doc-padding-64{padding-top:64px!important;padding-bottom:64px!important}
+
+.doc-wide{letter-spacing:4px}
+
+.doc-center .doc-bar{display:inline-block;width:auto}
+.doc-bar-block.doc-center .doc-bar-item{text-align:center}.doc-block{display:block;width:100%}
+.doc-center{text-align:center!important}
+
+.doc-opacity,.doc-hover-opacity:hover{opacity:0.60}.doc-opacity-off,.doc-hover-opacity-off:hover{opacity:1}
+
+.doc-row-padding,.doc-row-padding>.doc-half,.doc-row-padding>.doc-third,.doc-row-padding>.doc-twothird,.doc-row-padding>.doc-threequarter,.doc-row-padding>.doc-quarter,.doc-row-padding>.doc-col{padding:0 8px}
+
+.doc-padding-32{padding-top:32px!important;padding-bottom:32px!important}.doc-padding-48{padding-top:48px!important;padding-bottom:48px!important}
+
+.doc-third,.doc-twothird,.doc-threequarter,.doc-quarter{float:left;width:100%}
+.doc-third{width:33.33333%}
+.doc-twothird,.doc-row-padding>.doc-threequarter,.doc-row-padding>.doc-quarter,.doc-row-padding>.doc-col{padding:0 8px}
+
+.doc-margin-bottom{margin-bottom:16px!important}
+.doc-white,.doc-hover-white:hover{color:#000!important;background-color:#fff!important}
+
+.doc-btn,.doc-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+.doc-btn,.doc-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.doc-disabled,.doc-btn:disabled,.doc-button:disabled{cursor:not-allowed;opacity:0.3}.doc-disabled *,:disabled *{pointer-events:none}
+.doc-dropdown-hover:hover > .doc-button:first-child,.doc-dropdown-click:hover > .doc-button:first-child{background-color:#ccc;color:#000}
+.doc-bar-block .doc-dropdown-hover .doc-button,.doc-bar-block .doc-dropdown-click .doc-button{width:100%;text-align:left;padding:8px 16px}
+.doc-bar .doc-button{white-space:normal}
+.doc-button:hover{color:#000!important;background-color:#ccc!important}
+
+.doc-text-black,.doc-hover-text-black:hover{color:#000!important}
+
+/*.doc-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}*/
+/*.doc-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}*/
+/*.doc-button:disabled{cursor:not-allowed;opacity:0.3}.doc-disabled *,:disabled *{pointer-events:none}*/
+/*.doc-button:first-child,.doc-dropdown-click:hover > .doc-button:first-child{background-color:#ccc;color:#000}*/
+/*.doc-button,.doc-bar-block .doc-dropdown-click .doc-button{width:100%;text-align:left;padding:8px 16px}*/
+/*.doc-button{white-space:normal}*/
+/*@media (max-width:600px){.doc-modal-content{margin:0 10px;width:auto!important}.doc-modal{padding-top:30px}*/
+  /*.doc-dropdown-hover.doc-mobile .doc-dropdown-content,.doc-dropdown-click.doc-mobile .doc-dropdown-content{position:relative}*/
+  /*.doc-hide-small{display:none!important}.doc-mobile{display:block;width:100%!important}.doc-bar-item.doc-mobile,.doc-dropdown-hover.doc-mobile,.doc-dropdown-click.doc-mobile{text-align:center}*/
+  /*.doc-dropdown-hover.doc-mobile,.doc-dropdown-hover.doc-mobile .doc-btn,.doc-dropdown-hover.doc-mobile .doc-button,.doc-dropdown-click.doc-mobile,.doc-dropdown-click.doc-mobile .doc-btn,.doc-dropdown-click.doc-mobile .doc-button{width:100%}}*/
+/*.doc-button:hover{color:#000!important;background-color:#ccc!important}*/

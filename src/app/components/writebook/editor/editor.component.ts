@@ -14,6 +14,7 @@ export class EditorComponent implements OnInit {
   editor: any;
   sessionId: string;
   sharedBook: any;
+  currentUsers: any[];
 
   constructor(private socket: CollaborationService, private route: ActivatedRoute, private sharedBookService: SharedBookService) { }
 

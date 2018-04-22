@@ -1,10 +1,57 @@
-<div class="container-fluid">
-  <a class="navbar-brand text-bold" routerLink="./">
-    Following List
-  </a>
-  <ul class="list-group list-group-borderless">
-    <li class="list-group-item list-item-borderless" *ngFor = "let user of follow">
-      <a routerLink="/profile/{{user._id}}">{{user.username}}</a>
-    </li>
-  </ul>
-</div>
+<!--<div class="container">-->
+  <!--<h2 class="navbar-brand text-bold" routerLink="./">-->
+    <!--Following List-->
+  <!--</h2>-->
+  <!--<ul class="list-group list-group-borderless">-->
+    <!--<li class="list-group-item list-item-borderless" *ngFor = "let user of follow">-->
+      <!--<a routerLink="/profile/{{user._id}}">{{user.username}}</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</div>-->
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<!-- Introduction menu -->
+
+  <!-- About Card -->
+  <div class="container doc-card  doc-margin-top ">
+    <!--<img src="/docimages/avatar_g.jpg" style="width:100%">-->
+    <div class=" doc-white">
+      <h4><b>My Name</b></h4>
+      <p>My name is {{user.username}}, I am a {{user.role}}</p>
+    </div>
+  </div><hr>
+
+  <!-- Posts -->
+
+  <div class="container doc-card ">
+    <!--<div class="  container">-->
+      <h4>My Following List</h4>
+    <!--</div>-->
+    <ul class="doc-ul doc-hoverable doc-white">
+      <li class="doc-padding-16" *ngFor = "let user of follow">
+        <!--<img src="/docimages/workshop.jpg" alt="Image" class="doc-left doc-margin-right" style="width:50px">-->
+        <a routerLink="/profile/{{user._id}}"> <span class="doc-large">{{user.username}}</span><br>
+          <span>{{user.username}} is a {{user.role}}</span></a>
+
+      </li>
+
+
+
+    </ul>
+  </div>
+
+
+  <!-- Labels / tags -->
+  <!--<div class="w3-card w3-margin">-->
+    <!--<div class="w3-container w3-padding">-->
+      <!--<h4>Tags</h4>-->
+    <!--</div>-->
+    <!--<div class="w3-container w3-white">-->
+      <!--<p><span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">London</span>-->
+        <!--<span class="w3-tag w3-light-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">DIY</span>-->
+        <!--<span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Family</span>-->
+        <!--<span class="w3-tag w3-light-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Shopping</span>-->
+        <!--<span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Games</span>-->
+      <!--</p>-->
+    <!--</div>-->
+  <!--</div>-->

@@ -1,13 +1,63 @@
 <div class="container">
   <div>
-    <a routerLink="/newSharedBook" class="form-group" ><span class="glyphicon glyphicon-plus"></span></a>
+    <a routerLink="/newSharedBook" class="form-group doc-text-black" ><span class="glyphicon glyphicon-plus"></span></a>
   </div>
-  <p>New Feature! Write Book Together(Google Doc) [Writer Only]</p>
-  <ul class="list-group cl-list-group-borderless">
-    <li class="list-group-item" *ngFor="let sharedBook of sharedBooks">
-      <!--<a [routerLink]="sharedBook._id" ><span class="glyphicon glyphicon-cog pull-right"></span></a>-->
-      <!--<a [routerLink]="['/sharedBook',sharedBook._id]">{{sharedBook.name}}</a>-->
-      <a (click)="clickSharedBook(sharedBook._id)">{{sharedBook.name}}</a>
-    </li>
-  </ul>
+  <!--<p>Mini Google Doc: New Feature! Write Book Together [Writer Only]</p>-->
+  <!--<ul class="list-group cl-list-group-borderless">-->
+    <!--<li class="list-group-item" *ngFor="let sharedBook of sharedBooks">-->
+      <!--&lt;!&ndash;<a [routerLink]="sharedBook._id" ><span class="glyphicon glyphicon-cog pull-right"></span></a>&ndash;&gt;-->
+      <!--&lt;!&ndash;<a [routerLink]="['/sharedBook',sharedBook._id]">{{sharedBook.name}}</a>&ndash;&gt;-->
+      <!--<a (click)="clickSharedBook(sharedBook._id)">{{sharedBook.name}}</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+</div>
+
+
+<div class="doc-black" >
+  <div class="doc-container doc-content doc-padding-64" style="max-width:800px">
+    <h2 class="doc-wide doc-center">Mini Google Doc:  Write Book Together</h2>
+    <p class="doc-opacity doc-center"><i>[Writer Only]</i></p><br>
+
+    <!--<ul class="doc-ul doc-border doc-white doc-text-grey">-->
+      <!--<li class="doc-padding">September <span class="doc-tag doc-red doc-margin-left">Sold out</span></li>-->
+      <!--<li class="doc-padding">October <span class="doc-tag doc-red doc-margin-left">Sold out</span></li>-->
+      <!--<li class="doc-padding">November <span class="doc-badge doc-right doc-margin-right">3</span></li>-->
+    <!--</ul>-->
+
+    <div class="doc-row-padding doc-padding-32" style="margin:0 -16px">
+
+      <div class="doc-third doc-margin-bottom " *ngFor="let sharedBook of sharedBooks">
+        <img [src]="sharedBook.imageURL"  style="width:100%;height:300px" class="doc-hover-opacity">
+        <div class="doc-container doc-white">
+          <p><b>{{sharedBook.name}}</b></p>
+          <p class="doc-opacity">Date Created</p>
+          <p class="doc-opacity">{{sharedBook.dateCreated}}</p>
+          <p style="width: 100%;height: 100px">{{sharedBook.description}}</p>
+          <!--<button class="doc-button doc-black doc-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Start Writing</button>-->
+          <a class="doc-button doc-black doc-margin-bottom" (click)="clickSharedBook(sharedBook._id)">Start Writing</a>
+          <!--<a (click)="clickSharedBook(sharedBook._id)">{{sharedBook.name}}</a>-->
+        </div>
+      </div>
+
+
+      <!--<div class="doc-third doc-margin-bottom">-->
+        <!--<img src="/docimages/paris.jpg" alt="Paris" style="width:100%" class="doc-hover-opacity">-->
+        <!--<div class="doc-container doc-white">-->
+          <!--<p><b>Paris</b></p>-->
+          <!--<p class="doc-opacity">Sat 28 Nov 2016</p>-->
+          <!--<p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>-->
+          <!--<button class="doc-button doc-black doc-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="doc-third doc-margin-bottom">-->
+        <!--<img src="/docimages/sanfran.jpg" alt="San Francisco" style="width:100%" class="doc-hover-opacity">-->
+        <!--<div class="doc-container doc-white">-->
+          <!--<p><b>San Francisco</b></p>-->
+          <!--<p class="doc-opacity">Sun 29 Nov 2016</p>-->
+          <!--<p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>-->
+          <!--<button class="doc-button doc-black doc-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+  </div>
 </div>

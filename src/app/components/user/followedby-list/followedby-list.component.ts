@@ -11,6 +11,7 @@ import {UserService} from '../../../services/user.service.client';
 export class FollowedbyListComponent implements OnInit {
   userId: string;
   followedBy: any[];
+  user: any;
 
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private sharedService: SharedService) { }
 
@@ -21,6 +22,7 @@ export class FollowedbyListComponent implements OnInit {
         this.userId = this.sharedService.user['_id'];
       }
       this.followedBy = this.sharedService.followedList;
+      this.user = this.sharedService.user;
     });
   }
 

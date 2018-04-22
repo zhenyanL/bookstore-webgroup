@@ -1,20 +1,70 @@
 
-<div style="display: block" class="container">
-  <form (ngSubmit)="createPage()" #newPageForm="ngForm">
-    <div *ngIf="errFlag" class="alert alert-danger">
-      {{error}}
-    </div>
-
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" ngModel name="bookName" class="form-control" id="name" placeholder="Document name">
-      <span class="alert-class"
-            *ngIf="errFlag">{{alert}}</span>
-    </div>
-    <!--<div class="form-group">-->
-    <!--<label for="title">Content</label>-->
-    <!--<input type="text" ngModel name="pageTitle" class="form-control" placeholder="title" id="title">-->
+<!--<div style="display: block" class="container">-->
+  <!--<form (ngSubmit)="createPage()" #newPageForm="ngForm">-->
+    <!--<div *ngIf="errFlag" class="alert alert-danger">-->
+      <!--{{error}}-->
     <!--</div>-->
-    <button type="submit">Submit</button>
-  </form>
+
+    <!--<div class="form-group">-->
+      <!--<label for="name">Name</label>-->
+      <!--<input type="text" ngModel name="bookName" class="form-control" id="name" placeholder="Book name">-->
+      <!--<span class="alert-class"-->
+            <!--*ngIf="errFlag">{{alert}}</span>-->
+
+      <!--<label for="description">Short Description</label>-->
+      <!--<input type="text" ngModel name="bookDescription" class="form-control" id="description" placeholder="Book Short Description">-->
+
+      <!--<label for="url">Image</label>-->
+      <!--<input type="text" ngModel name="imageURL" class="form-control" id="url" placeholder="Image URL">-->
+
+    <!--</div>-->
+    <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+    <!--&lt;!&ndash;<label for="title">Content</label>&ndash;&gt;-->
+    <!--&lt;!&ndash;<input type="text" ngModel name="pageTitle" class="form-control" placeholder="title" id="title">&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--<button type="submit">Submit</button>-->
+  <!--</form>-->
+<!--</div>-->
+
+
+<div class="doc-display-container doc-center">
+  <img src="https://www.popsci.com/sites/popsci.com/files/styles/655_1x_/public/images/2018/03/depositphotos_5127968_original.jpg?itok=QQ7lh45d&fc=50,50" style="width:80%">
+  <div class="doc-display-topmiddle  doc-text-white doc-padding-32 doc-hide-small" style="width:50%">
+    <h3>Create New Document</h3>
+    <!--<p><b>We had the best time playing at Venice Beach!</b></p>-->
+    <form (ngSubmit)="createPage()" #newPageForm="ngForm">
+      <div *ngIf="errFlag || lengthFlag" class="alert alert-danger">
+        {{error}}
+      </div>
+
+      <div class="form-group">
+
+        <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" ngModel name="bookName" class="form-control" id="name" placeholder="Book name">
+        <span class="alert-class alert doc-text-red" *ngIf="errFlag">{{alert}}</span>
+        </div>
+
+        <div class="form-group">
+        <label for="description">Short Description</label>
+        <input type="text" ngModel name="bookDescription" class="form-control" id="description" placeholder="Book Short Description">
+        <span class="alert-class alert doc-text-red"  *ngIf="lengthFlag">{{lengthAlert}}</span>
+        </div>
+
+
+        <div class="form-group">
+        <label for="url">Image</label>
+        <input type="text" ngModel name="imageURL" class="form-control" id="url" placeholder="Image URL">
+        </div>
+
+      </div>
+      <!--<div class="form-group">-->
+      <!--<label for="title">Content</label>-->
+      <!--<input type="text" ngModel name="pageTitle" class="form-control" placeholder="title" id="title">-->
+      <!--</div>-->
+      <button type="submit" class="btn-primary">Submit</button>
+    </form>
+
+  </div>
 </div>
+

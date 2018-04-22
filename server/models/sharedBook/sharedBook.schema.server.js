@@ -18,6 +18,9 @@ var SharedBookSchema = mongoose.Schema ({
   // dateCreated : {type: Date, default : Date.now} //Date.now is the current time
   name: String,
   content: String,
+  description: String,
+  imageURL: String,
+  dateCreated: {type: Date, default : Date.now}
 }, {collection: "sharedBook" });
 
 module.exports = SharedBookSchema;
