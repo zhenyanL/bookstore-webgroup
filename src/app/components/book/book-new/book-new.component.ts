@@ -33,6 +33,7 @@ export class BookNewComponent implements OnInit {
         .subscribe(
           (user) => {
             if (user.role !== 'SELLER') {
+              alert('Only seller can sell books. Back to home page.');
               this.router.navigate(['/']);
             } else {
               this._seller = this.userId;

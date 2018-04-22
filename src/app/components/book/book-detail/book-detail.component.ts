@@ -21,9 +21,13 @@ export class BookDetailComponent implements OnInit {
     , private bookService: BookService, private router: Router, private cartService: CartService) { }
 
   ngOnInit() {
-    if (this.sharedService.user !== undefined) {
-      this.userId = this.sharedService.user['_id'];
-    }
+    this.sharedService.currentUser.subscribe(
+      (user) => {
+        if (user) {
+          this.userId = user._id;
+        }
+      }
+    );
     this.activatedRoute.params
       .subscribe(
         (params: any) => {

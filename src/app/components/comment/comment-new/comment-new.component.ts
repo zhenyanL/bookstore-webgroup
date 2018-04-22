@@ -49,7 +49,7 @@ export class CommentNewComponent implements OnInit {
     this.commentService.createComment(this.comment._book, this.comment._author, this.comment)
       .subscribe(
         (comment: any) => {
-          this.router.navigate(['..']);
+          this.router.navigate(['/book', comment._book]);
         }
       );
   }

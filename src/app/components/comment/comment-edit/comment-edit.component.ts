@@ -11,6 +11,7 @@ import {CommentService} from '../../../services/comment.service.client';
 export class CommentEditComponent implements OnInit {
   userId: string;
   comment: any;
+  bookId: string;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute
               , private sharedService: SharedService, private commentService: CommentService) { }
@@ -27,6 +28,7 @@ export class CommentEditComponent implements OnInit {
                   this.router.navigate(['/']);
                 }
                 this.comment = comment;
+                this.bookId = this.comment._book;
               } else {
                 this.router.navigate(['/']);
               }
@@ -38,11 +40,14 @@ export class CommentEditComponent implements OnInit {
 
   update() {
     this.commentService.updateComment(this.comment).subscribe();
+    alert('Changed comment is saved');
+    this.router.navigate(['/book', this.bookId]);
   }
 
   delete() {
     this.commentService.deleteComment(this.comment._id).subscribe();
-    console.log('Delete button is pressed');
+    alert('Comment is deleted');
+    this.router.navigate(['/book', this.bookId]);
   }
 
 }

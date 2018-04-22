@@ -51,6 +51,7 @@ export class BookEditComponent implements OnInit {
       .subscribe(
         (book: any) => {
           alert( this.book.name + ' saved successfully' );
+          this.router.navigate(['/book', this.bookId]);
         }
       );
   }
